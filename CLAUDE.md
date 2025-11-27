@@ -1,6 +1,6 @@
 # Creyos Interactive Microsites
 
-This project contains three interactive single-page microsites for **Creyos** cognitive assessment marketing and GTM planning.
+This project contains four interactive single-page microsites for **Creyos** cognitive assessment marketing, GTM planning, and sales enablement.
 
 ---
 
@@ -89,6 +89,32 @@ The "control room" for execs and GTM teams to explore account targeting, trigger
 
 ---
 
+## 4. Cognitive Vital Sign (/cognitive-vital-sign)
+
+An interactive product marketing page translating the narrative into a demo-ready experience.
+
+### Purpose
+Makes the status quo vs new approach obvious in under 30 seconds for clinicians, staff, and ops.
+
+### Features
+1. **VitalSignHero** - Split card comparing "Today" vs "With cognitive vital sign" with hover tooltips
+2. **PersonaViewSwitcher** - Sticky bar to switch between Clinician, Staff, and Manager views
+3. **VisitFlowComparator** - Side-by-side before/after timelines for AWV, Memory Complaint, and ADHD visits
+4. **ThreePillarsExplorer** - Expandable cards for Clarity, Workload, and System Value with persona-specific content
+5. **ReportWalkthrough** - Interactive mock report with clickable regions explaining each part
+6. **DecisionPlaybook** - If-this-then-that grid with clinical vignettes and patient scripts
+7. **ClinicQuickStart** - Swimlane diagram showing Staff, Clinician, and System workflows
+8. **SummaryStrip** - 4-bullet story summary with CTA
+
+### Files
+- `app/cognitive-vital-sign/page.tsx` - Main page
+- `components/vital-sign/*` - All section components
+- `contexts/VitalSignPersonaContext.tsx` - Persona state for content switching
+- `config/vitalSignContent.ts` - All content, flows, pillars, playbook, workflows
+- `types/vitalSign.ts` - TypeScript interfaces
+
+---
+
 ## Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
@@ -105,6 +131,8 @@ The "control room" for execs and GTM teams to explore account targeting, trigger
 ```
 ├── app/
 │   ├── page.tsx                              # Persona report
+│   ├── cognitive-vital-sign/
+│   │   └── page.tsx                          # Cognitive Vital Sign
 │   ├── enterprise/
 │   │   └── cognitive-assessment-landscape/
 │   │       └── page.tsx                      # Enterprise page
@@ -113,6 +141,7 @@ The "control room" for execs and GTM teams to explore account targeting, trigger
 │           └── page.tsx                      # GTM Blueprint (internal)
 ├── components/
 │   ├── report/                               # Persona report components
+│   ├── vital-sign/                           # Cognitive Vital Sign components
 │   ├── enterprise/                           # Enterprise components
 │   ├── gtm/                                  # GTM blueprint components
 │   └── ui/                                   # shadcn/ui components
@@ -120,17 +149,20 @@ The "control room" for execs and GTM teams to explore account targeting, trigger
 │   ├── enterpriseCognitiveReport.ts
 │   ├── competitiveLandscape.ts
 │   ├── valueScenario.ts
+│   ├── vitalSignContent.ts                   # Vital Sign flows, pillars, playbook
 │   ├── gtmBlueprint.ts                       # GTM overview, triggers, accounts
 │   ├── gtmPersonas.ts                        # ICP/persona configurations
 │   └── gtmPilot.ts                           # Pilot design templates
 ├── contexts/
-│   └── PersonaContext.tsx
+│   ├── PersonaContext.tsx                    # Persona report context
+│   └── VitalSignPersonaContext.tsx           # Vital Sign persona context
 ├── data/
 │   └── reportMetrics.json
 ├── types/
 │   ├── report.ts
 │   ├── enterprise.ts
-│   └── gtm.ts
+│   ├── gtm.ts
+│   └── vitalSign.ts
 └── documentation/                            # Project requirements docs
 ```
 
@@ -151,6 +183,7 @@ npm run dev
 
 ### URLs
 - **Persona Report**: http://localhost:3000/
+- **Cognitive Vital Sign**: http://localhost:3000/cognitive-vital-sign
 - **Enterprise Page**: http://localhost:3000/enterprise/cognitive-assessment-landscape
 - **GTM Blueprint** (internal): http://localhost:3000/internal/enterprise-gtm-blueprint
 
@@ -177,6 +210,16 @@ Edit config files in `/config/`:
 - `gtmBlueprint.ts` - Overview, triggers, Dream 25 accounts, channels, phases, tasks, storyboards, exec decisions
 - `gtmPersonas.ts` - ICP configurations, persona details, account blueprints, channel plays
 - `gtmPilot.ts` - Pilot templates (duration, roles, objectives, exit criteria)
+
+### Cognitive Vital Sign
+Edit `config/vitalSignContent.ts` to update:
+- `heroContent` - Headline, subhead, body, comparison cards
+- `visitFlows` - AWV, Memory Complaint, ADHD before/after steps
+- `pillars` - Clarity, Workload, System Value content (with persona variants)
+- `reportRegions` - Mock report explanations
+- `decisionRows` - Playbook scenarios, vignettes, patient scripts
+- `workflowLanes` - Staff, Clinician, System swimlane steps
+- `summaryBullets` - Final 4-bullet story
 
 ---
 
