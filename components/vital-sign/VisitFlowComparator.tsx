@@ -105,7 +105,7 @@ export function VisitFlowComparator() {
             {/* Note about standard practice */}
             <div className="mt-6 p-4 bg-slate-800/30 rounded-xl border border-slate-700/50">
               <p className="text-xs text-slate-500 italic">
-                This is not "gut feel only." It&apos;s a mix of structured tools and clinical judgment, 
+                This is not &quot;gut feel only.&quot; It&apos;s a mix of structured tools and clinical judgment, 
                 constrained by time, training, and documentation limits.
               </p>
             </div>

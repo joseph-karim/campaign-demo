@@ -71,7 +71,6 @@ export function KaiserStoryboard() {
         <div className="space-y-4">
           {storyboard.panels.map((panel, index) => {
             const isExpanded = expandedPanel === panel.id;
-            const Icon = () => panelIcons[panel.id] || <Building2 className="w-5 h-5" />;
 
             return (
               <div

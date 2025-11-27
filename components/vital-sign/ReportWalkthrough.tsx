@@ -192,7 +192,7 @@ export function ReportWalkthrough() {
             {/* Quick reference */}
             <div className="mt-6 p-4 bg-slate-800/30 rounded-xl border border-slate-700/50">
               <p className="text-sm text-slate-400 text-center">
-                <span className="text-indigo-400 font-medium">Pro tip:</span> You don't need to interpret raw scores.
+                <span className="text-indigo-400 font-medium">Pro tip:</span> You don&apos;t need to interpret raw scores.
                 The report translates everything into risk levels and actionable suggestions.
               </p>
             </div>

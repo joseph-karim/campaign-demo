@@ -15,12 +15,13 @@ const personaOptions: { id: PersonaId; label: string }[] = [
   { id: 'ops', label: 'Operations' }
 ];
 
-const stepConfig = [
-  { id: 'wedge', icon: Target, title: 'Where We Wedge In', color: 'emerald' },
-  { id: 'say', icon: MessageSquare, title: 'What We Say', color: 'blue' },
-  { id: 'propose', icon: FileText, title: 'What We Propose', color: 'purple' },
-  { id: 'measure', icon: BarChart3, title: 'What We Measure', color: 'amber' }
-];
+// Step configuration for reference
+// const stepConfig = [
+//   { id: 'wedge', icon: Target, title: 'Where We Wedge In', color: 'emerald' },
+//   { id: 'say', icon: MessageSquare, title: 'What We Say', color: 'blue' },
+//   { id: 'propose', icon: FileText, title: 'What We Propose', color: 'purple' },
+//   { id: 'measure', icon: BarChart3, title: 'What We Measure', color: 'amber' }
+// ];
 
 export function AccountBlueprintExplorer() {
   const [selectedAccountId, setSelectedAccountId] = useState('kaiser');

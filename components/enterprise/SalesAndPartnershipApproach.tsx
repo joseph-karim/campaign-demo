@@ -64,7 +64,7 @@ export function SalesAndPartnershipApproach() {
                 </div>
                 <span className="font-medium text-slate-900 dark:text-white">Creyos</span>
               </div>
-              {swimlaneStages.map((stage, idx) => (
+              {swimlaneStages.map((stage) => (
                 <div key={stage.id} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
                   <ul className="space-y-2">
                     {stage.creyos.slice(0, 2).map((item, i) => (
@@ -89,7 +89,7 @@ export function SalesAndPartnershipApproach() {
                 </div>
                 <span className="font-medium text-slate-900 dark:text-white text-sm">Clinical Leadership</span>
               </div>
-              {swimlaneStages.map((stage, idx) => (
+              {swimlaneStages.map((stage) => (
                 <div key={stage.id} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
                   <ul className="space-y-2">
                     {stage.clinical.slice(0, 2).map((item, i) => (
@@ -114,7 +114,7 @@ export function SalesAndPartnershipApproach() {
                 </div>
                 <span className="font-medium text-slate-900 dark:text-white text-sm">IT / Digital</span>
               </div>
-              {swimlaneStages.map((stage, idx) => (
+              {swimlaneStages.map((stage) => (
                 <div key={stage.id} className="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
                   <ul className="space-y-2">
                     {stage.it.slice(0, 2).map((item, i) => (

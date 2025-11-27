@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, FileText, Activity, Building2, Target, Users, ChevronRight, Lock, ExternalLink, Lightbulb, BookOpen } from 'lucide-react';
+import { ArrowRight, Users, ChevronRight, Lock, ExternalLink, Lightbulb, BookOpen } from 'lucide-react';
 import { pages, brand, execSummary } from '@/config/brand';
 
 export const metadata = {
@@ -39,12 +39,6 @@ const colorClasses: Record<string, { bg: string; border: string; text: string; i
   }
 };
 
-const pageIcons: Record<string, React.ReactNode> = {
-  'closing-the-gap': <FileText className="w-5 h-5" />,
-  'cognitive-vital-sign': <Activity className="w-5 h-5" />,
-  'enterprise-landscape': <Building2 className="w-5 h-5" />,
-  'gtm-blueprint': <Target className="w-5 h-5" />
-};
 
 export default function ReportsHub() {
   return (

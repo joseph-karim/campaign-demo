@@ -4,8 +4,21 @@
 // export const authClient = createAuthClient();
 // export const { signIn, signOut, signUp, useSession } = authClient;
 
-export const authClient = null as any;
+// Type for session data
+interface SessionData {
+  user?: {
+    id: string;
+    name: string;
+    email: string;
+    image?: string;
+  };
+}
+
+export const authClient = null;
 export const signIn = () => {};
 export const signOut = () => {};
 export const signUp = () => {};
-export const useSession = () => ({ data: null, isPending: false });
+export const useSession = (): { data: SessionData | null; isPending: boolean } => ({ 
+  data: null, 
+  isPending: false 
+});

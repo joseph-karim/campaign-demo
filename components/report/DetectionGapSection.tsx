@@ -28,7 +28,7 @@ export function DetectionGapSection() {
   const { currentPersona, content } = usePersona();
   const { detectionGap } = content;
   const [activeTab, setActiveTab] = useState(detectionGap.tabs[0]?.id || 'dementia');
-  const activeTabData = detectionGap.tabs.find(t => t.id === activeTab) || detectionGap.tabs[0];
+  const _activeTabData = detectionGap.tabs.find(t => t.id === activeTab) || detectionGap.tabs[0];
   const primaryColor = colorMap[currentPersona];
 
   return (

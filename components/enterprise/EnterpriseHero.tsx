@@ -44,7 +44,7 @@ export function EnterpriseHero() {
             <p className="text-xl text-slate-300 leading-relaxed">
               Global dementia burden is rising toward ~57 million people today and millions more each year. 
               Up to <span className="text-blue-400 font-semibold">75% of cases go undiagnosed</span>. 
-              At enterprise scale, that's tens of thousands of patients in your system with unmanaged 
+              At enterprise scale, that&apos;s tens of thousands of patients in your system with unmanaged 
               cognitive impairment and downstream cost.
             </p>
 

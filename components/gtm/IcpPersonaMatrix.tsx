@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { icpConfigs } from '@/config/gtmPersonas';
 import type { IcpType, PersonaDetail } from '@/types/gtm';
-import { Building2, GraduationCap, MapPin, X, Briefcase, Target, AlertCircle, Zap, MessageSquare, FileCheck } from 'lucide-react';
+import { Building2, GraduationCap, MapPin, X, Briefcase, AlertCircle, Zap, MessageSquare, FileCheck } from 'lucide-react';
 
 const icpIcons: Record<IcpType, React.ReactNode> = {
   mega_idn: <Building2 className="w-4 h-4" />,
@@ -44,7 +44,7 @@ export function IcpPersonaMatrix() {
             ICP & Persona Matrix
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Understand who we're targeting and what matters to each persona at different system types.
+            Understand who we&apos;re targeting and what matters to each persona at different system types.
           </p>
         </div>
 

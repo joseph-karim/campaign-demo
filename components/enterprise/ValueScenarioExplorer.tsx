@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useMemo } from 'react';
-import { cn } from '@/lib/utils';
 import { Slider } from '@/components/ui/slider';
 import { Calculator, Users, Brain, TrendingUp, UserCheck } from 'lucide-react';
 import { valueScenarioDefaults, valueScenarioRanges } from '@/config/valueScenario';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 export function ValueScenarioExplorer() {
   const [values, setValues] = useState({

@@ -21,4 +21,4 @@
 //     },
 // });
 
-export const auth = null as any;
+export const auth: null = null;

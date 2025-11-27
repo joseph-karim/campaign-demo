@@ -196,7 +196,7 @@ function PatientScriptModal({ row, risk, onClose }: PatientScriptModalProps) {
           </div>
 
           <p className="mt-4 text-xs text-slate-500 text-center">
-            Adapt this language to your style and the patient's needs.
+            Adapt this language to your style and the patient&apos;s needs.
           </p>
         </div>
       </div>
