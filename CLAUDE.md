@@ -1,6 +1,6 @@
 # Creyos Interactive Microsites
 
-This project contains two interactive single-page microsites for **Creyos** cognitive assessment marketing.
+This project contains three interactive single-page microsites for **Creyos** cognitive assessment marketing and GTM planning.
 
 ---
 
@@ -61,6 +61,34 @@ An enterprise-focused microsite for IDN/health system executives.
 
 ---
 
+## 3. Enterprise GTM Blueprint (/internal/enterprise-gtm-blueprint)
+
+An internal-only GTM planning tool for enterprise sales strategy.
+
+### Purpose
+The "control room" for execs and GTM teams to explore account targeting, triggers, messaging, channels, and execution planning.
+
+### Features
+1. **GtmHeroOverview** - Objective, target, timeframe with Exec/Field view toggle
+2. **IcpPersonaMatrix** - ICP selector (Mega-IDN, Academic, Regional) with 6 persona cards per type, expandable details
+3. **TriggerRadar** - Trigger checklist with Dream 25 account scoring (hot/warm/cold), account drawer with signals
+4. **AccountBlueprintExplorer** - 4-step storyboard (Wedge, Say, Propose, Measure) per account/persona
+5. **ChannelAndPlayMatrix** - Channel × Persona matrix by phase, clickable cells with specific plays
+6. **PilotDesignConfigurator** - Interactive pilot builder (type, scope, use case, integration level → outputs)
+7. **ExecutionPhaseTimeline** - Task grid by phase (0-3, 3-9, 9-18 months) and owner (Exec, PMM, Sales, Clinical, Product)
+8. **KaiserStoryboard** - Concrete account example with 5-panel storyboard (Context, Entry, Meeting, Pilot, Expansion)
+9. **SummaryForExecs** - 3 decision categories (Targets, Resourcing, Risk/ROI) with expandable details
+
+### Files
+- `app/internal/enterprise-gtm-blueprint/page.tsx` - Main page
+- `components/gtm/*` - All section components
+- `config/gtmBlueprint.ts` - Overview, triggers, accounts, channels, phases, tasks, storyboards, decisions
+- `config/gtmPersonas.ts` - ICP configs, persona details, account blueprints, channel plays
+- `config/gtmPilot.ts` - Pilot templates and calculator logic
+- `types/gtm.ts` - TypeScript interfaces
+
+---
+
 ## Tech Stack
 
 - **Framework**: Next.js 15 (App Router)
@@ -77,24 +105,32 @@ An enterprise-focused microsite for IDN/health system executives.
 ```
 ├── app/
 │   ├── page.tsx                              # Persona report
-│   └── enterprise/
-│       └── cognitive-assessment-landscape/
-│           └── page.tsx                      # Enterprise page
+│   ├── enterprise/
+│   │   └── cognitive-assessment-landscape/
+│   │       └── page.tsx                      # Enterprise page
+│   └── internal/
+│       └── enterprise-gtm-blueprint/
+│           └── page.tsx                      # GTM Blueprint (internal)
 ├── components/
 │   ├── report/                               # Persona report components
 │   ├── enterprise/                           # Enterprise components
+│   ├── gtm/                                  # GTM blueprint components
 │   └── ui/                                   # shadcn/ui components
 ├── config/
 │   ├── enterpriseCognitiveReport.ts
 │   ├── competitiveLandscape.ts
-│   └── valueScenario.ts
+│   ├── valueScenario.ts
+│   ├── gtmBlueprint.ts                       # GTM overview, triggers, accounts
+│   ├── gtmPersonas.ts                        # ICP/persona configurations
+│   └── gtmPilot.ts                           # Pilot design templates
 ├── contexts/
 │   └── PersonaContext.tsx
 ├── data/
 │   └── reportMetrics.json
 ├── types/
 │   ├── report.ts
-│   └── enterprise.ts
+│   ├── enterprise.ts
+│   └── gtm.ts
 └── documentation/                            # Project requirements docs
 ```
 
@@ -116,6 +152,7 @@ npm run dev
 ### URLs
 - **Persona Report**: http://localhost:3000/
 - **Enterprise Page**: http://localhost:3000/enterprise/cognitive-assessment-landscape
+- **GTM Blueprint** (internal): http://localhost:3000/internal/enterprise-gtm-blueprint
 
 ---
 
@@ -134,6 +171,12 @@ Edit config files in `/config/`:
 - `enterpriseCognitiveReport.ts` - Hero, macro forces, exec pillars
 - `competitiveLandscape.ts` - Competitor positions and tooltips
 - `valueScenario.ts` - Calculator defaults, rollout phases
+
+### GTM Blueprint
+Edit config files in `/config/`:
+- `gtmBlueprint.ts` - Overview, triggers, Dream 25 accounts, channels, phases, tasks, storyboards, exec decisions
+- `gtmPersonas.ts` - ICP configurations, persona details, account blueprints, channel plays
+- `gtmPilot.ts` - Pilot templates (duration, roles, objectives, exit criteria)
 
 ---
 
