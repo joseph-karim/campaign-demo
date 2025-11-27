@@ -6,4 +6,5 @@ export { ReportWalkthrough } from './ReportWalkthrough';
 export { DecisionPlaybook } from './DecisionPlaybook';
 export { ClinicQuickStart } from './ClinicQuickStart';
 export { SummaryStrip } from './SummaryStrip';
+export { MocaRealityCheck } from './MocaRealityCheck';
 
