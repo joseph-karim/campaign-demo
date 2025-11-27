@@ -122,54 +122,190 @@ export const radius = {
   full: 9999,
 };
 
-// Page configurations for navigation
+// Page configurations for navigation - structured for exec clarity
 export const pages = [
   {
     id: 'closing-the-gap',
-    title: 'Closing the Cognitive Assessment Gap',
-    subtitle: 'State of the Union Report',
-    description: 'Interactive report exploring the detection gap across clinical personas with ROI calculator and implementation guidance.',
+    number: 1,
+    workingName: 'Cognitive Detection Gap & Market Context',
+    title: 'Market & Detection Gap Report',
+    type: 'External-facing "state of the union" report',
     href: '/closing-the-gap',
-    pillar: 'Early Detection',
-    audience: ['Primary Care', 'Neurology', 'Mental Health', 'Corporate Wellness'],
-    features: ['Persona Selector', 'Detection Gap Charts', 'ROI Calculator', '90-Day Checklist'],
-    color: 'teal'
+    color: 'teal',
+    
+    // What it does
+    whatItDoes: 'Shows executives and clinical leaders how cognitive assessment is done today (MoCA, interviews, referral patterns), where the gaps are in coverage and timing, and how a standardized digital workflow changes detection with simple, defensible assumptions.',
+    
+    // Key question it answers
+    keyQuestion: 'Is this a real problem, and is it big enough to matter to our system?',
+    
+    // Primary audience
+    audience: [
+      'Health system execs (CMO, Chief Quality, Pop Health)',
+      'Service-line leaders (Primary Care, Neuro, Psych)',
+      'Internal leadership for market sizing'
+    ],
+    
+    // How it fits
+    howItFits: {
+      marketing: 'Sets the category problem (under-detection and inconsistent screening). Provides neutral charts reusable in decks and website.',
+      operations: 'Frames the opportunity in terms of coverage and workflow, not just science. Supports AWV and dementia strategy conversations.'
+    },
+    
+    // What\'s inside
+    modules: [
+      'Persona selector (PCP, Neuro, MH, Wellness)',
+      'Detection gap visuals (current vs target)',
+      'Simple ROI calculator (volume-based, not hype)',
+      '90-day implementation outline'
+    ],
+    
+    // How to use
+    howToUse: [
+      'First thing to send a serious prospect who asks "Why do we need this at all?"',
+      'Backbone for the "Problem" section in enterprise pitches and talks'
+    ]
   },
   {
     id: 'cognitive-vital-sign',
-    title: 'From Gut Feel to a Cognitive Vital Sign',
-    subtitle: 'Product Marketing Narrative',
-    description: 'Transform how you approach cognitive assessment with clear before/after comparisons and decision playbooks.',
+    number: 2,
+    workingName: 'How Digital Cognitive Assessment Fits Into a Visit',
+    title: 'Clinical Workflow & Product Value Report',
+    type: 'External-facing product/operations report',
     href: '/cognitive-vital-sign',
-    pillar: 'Seamless Implementation',
-    audience: ['Clinicians', 'Clinical Staff', 'Operations Managers'],
-    features: ['Visit Flow Comparator', 'Report Walkthrough', 'Decision Playbook', 'Workflow Guide'],
-    color: 'blue'
+    color: 'blue',
+    
+    whatItDoes: 'Shows, step-by-step, how Creyos fits into real workflows: AWV in primary care, memory/neurology consults, ADHD/mental health evaluations. Compares standard practice (MoCA + history + notes) with standard practice plus digital—no dunking on clinicians.',
+    
+    keyQuestion: 'What actually changes in my day and my clinic if we use this?',
+    
+    audience: [
+      'Clinicians (PCP, Neuro, Psych)',
+      'Clinical staff (MAs, Nurses)',
+      'Clinic managers and operations leads'
+    ],
+    
+    howItFits: {
+      marketing: 'Bridges the gap between abstract "we detect things earlier" claims and what happens in a 20-minute visit.',
+      operations: 'Gives clinic managers a concrete view of roles, time impact, and documentation flow. Basis for training content.'
+    },
+    
+    modules: [
+      'Visit flow comparator (today vs today + digital)',
+      'Report walkthrough (what each part means)',
+      'Decision playbook (3-5 common patterns with scripts)',
+      'Workflow lanes (staff / clinician / system)'
+    ],
+    
+    howToUse: [
+      'Demo spine when talking to clinicians or managers',
+      'Reference when someone says "show me exactly where it fits"'
+    ]
   },
   {
     id: 'enterprise-landscape',
-    title: 'Enterprise Cognitive Assessment Landscape',
-    subtitle: 'Strategic Overview for Health Systems',
-    description: 'Comprehensive view of the market opportunity, competitive positioning, and enterprise rollout strategy.',
+    number: 3,
+    workingName: 'Cognitive Assessment for Health Systems – Strategy & Rollout',
+    title: 'Enterprise Strategy & Positioning Report',
+    type: 'External-facing strategic/positioning report',
     href: '/enterprise/cognitive-assessment-landscape',
-    pillar: 'A Smarter Approach',
-    audience: ['CMO / CNO', 'Service Line Leaders', 'Chief Digital / CIO'],
-    features: ['Market Analysis', 'Competitive Quadrant', 'Value Calculator', 'Rollout Timeline'],
-    color: 'navy'
+    color: 'navy',
+    
+    whatItDoes: 'Gives health system leadership a full picture of the cognitive assessment category, where existing tools sit (MoCA, Qbtech, Neurotrack, CANTAB), where Creyos sits (multi-condition, deployable, validated), and how system-level rollout typically happens.',
+    
+    keyQuestion: 'How does this fit our overall digital and clinical strategy, and why this platform vs others?',
+    
+    audience: [
+      'CMO, CNO, Chief Quality',
+      'Service-line leaders (Neuro, Psych, Primary Care)',
+      'Chief Digital Officer, CIO, CMIO, Innovation teams'
+    ],
+    
+    howItFits: {
+      marketing: 'Clarifies Creyos as a layer across a system, not a tool for one clinic. Competitive context for RFPs.',
+      operations: 'Realistic sense of a 2-3 year journey. Frames pilots, governance, and integration levels.'
+    },
+    
+    modules: [
+      'Market context (dementia burden, AWV requirements)',
+      'Competitive quadrant (breadth vs deployability)',
+      'Network value scenarios (5, 10, 20 hospitals)',
+      'Rollout timeline (phases, decisions, roles)'
+    ],
+    
+    howToUse: [
+      'Main pre-read for serious enterprise prospects',
+      'Reference for your own strategy on segments and use cases'
+    ]
   },
   {
     id: 'gtm-blueprint',
-    title: 'Enterprise GTM Blueprint',
-    subtitle: 'Internal Planning Tool',
-    description: 'Account targeting, persona mapping, channel strategy, and pilot design configurator for the GTM team.',
+    number: 4,
+    workingName: 'Enterprise GTM Blueprint',
+    title: 'Enterprise GTM Operating Plan',
+    type: 'Internal only – sales/marketing/exec planning tool',
     href: '/internal/enterprise-gtm-blueprint',
-    pillar: 'Seamless Implementation',
-    audience: ['Sales', 'Marketing', 'Executive Team'],
-    features: ['ICP Matrix', 'Trigger Radar', 'Account Blueprints', 'Pilot Configurator'],
     color: 'accent',
-    internal: true
+    internal: true,
+    
+    whatItDoes: 'Pulls together which types of systems to target, which personas matter, which triggers make an account worth your time, how pilots should be shaped, and which channels and plays to use at each phase.',
+    
+    keyQuestion: 'Who are we targeting, with what story, through which channels, and what does a "good" pilot and deal look like?',
+    
+    audience: [
+      'Sales / BD',
+      'PMM / Marketing',
+      'Exec team (focus and resourcing decisions)'
+    ],
+    
+    howItFits: {
+      marketing: 'Ensures all outward efforts (reports, website, decks) are pointed at the same accounts with consistent narrative.',
+      operations: 'Defines "success" in 12-18 months. Shared view of account prioritization and pilot design.'
+    },
+    
+    modules: [
+      'ICP & persona matrix (jobs-to-be-done)',
+      'Trigger radar (which systems are "warm")',
+      'Account blueprints (4-step entry story)',
+      'Pilot configurator (duration, metrics, exit criteria)',
+      'Execution timeline (0-3, 3-9, 9-18 months)'
+    ],
+    
+    howToUse: [
+      'Single reference for "Which systems are we going after?"',
+      'Answer to "What does a good pilot look like?"',
+      'How marketing supports sales right now'
+    ]
   }
 ];
+
+// Executive summary of how all reports fit together
+export const execSummary = {
+  intro: 'Think of this as your internal catalog of reports.',
+  framework: [
+    {
+      number: 1,
+      title: 'Market & Detection Gap Report',
+      summary: 'Why this category matters at all.'
+    },
+    {
+      number: 2,
+      title: 'Clinical Workflow & Product Value Report',
+      summary: 'What actually changes in a visit or clinic.'
+    },
+    {
+      number: 3,
+      title: 'Enterprise Strategy & Positioning Report',
+      summary: 'How this fits a health system\'s broader strategy and why us vs others.'
+    },
+    {
+      number: 4,
+      title: 'Enterprise GTM Operating Plan',
+      summary: 'How we focus our efforts and turn all of the above into real deals and pilots.',
+      internal: true
+    }
+  ]
+};
 
 export default {
   brand,
@@ -177,6 +313,6 @@ export default {
   typography,
   spacing,
   radius,
-  pages
+  pages,
+  execSummary
 };
-
