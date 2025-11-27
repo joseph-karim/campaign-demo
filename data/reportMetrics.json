@@ -1,0 +1,898 @@
+{
+  "personas": [
+    {
+      "id": "primary-care",
+      "name": "Primary Care",
+      "shortName": "PCP",
+      "icon": "stethoscope",
+      "color": "#2563EB"
+    },
+    {
+      "id": "neurology",
+      "name": "Neurology",
+      "shortName": "Neuro",
+      "icon": "brain",
+      "color": "#7C3AED"
+    },
+    {
+      "id": "mental-health",
+      "name": "Mental Health / ADHD",
+      "shortName": "MH",
+      "icon": "heart-pulse",
+      "color": "#059669"
+    },
+    {
+      "id": "corporate-wellness",
+      "name": "Corporate Wellness",
+      "shortName": "Corp",
+      "icon": "building-2",
+      "color": "#DC2626"
+    }
+  ],
+  "content": {
+    "primary-care": {
+      "hero": {
+        "headline": "Your patients have cognitive problems you're not catching",
+        "subheadline": "Up to 60% of dementia cases go undiagnosed in primary care. A 5-minute digital assessment changes that.",
+        "ctaText": "Download Evidence Pack",
+        "ctaAsset": "/assets/pdfs/primary-care-evidence-pack.pdf",
+        "stats": {
+          "label": "Dementia Cases",
+          "diagnosed": 40,
+          "undiagnosed": 60,
+          "unit": "%"
+        }
+      },
+      "detectionGap": {
+        "narrative": "Primary care is the front line for cognitive health—but traditional screening tools miss the majority of cases. Studies show that 60% of dementia patients leave their PCP's office without a diagnosis. Digital cognitive assessments catch what paper tests and clinical impression cannot.",
+        "tabs": [
+          {
+            "id": "dementia",
+            "label": "Dementia Detection",
+            "description": "Comparison of detection rates across assessment methods",
+            "chartData": [
+              { "label": "Digital Assessment", "value": 94, "color": "#2563EB" },
+              { "label": "MMSE", "value": 67, "color": "#94A3B8" },
+              { "label": "Clock Drawing", "value": 58, "color": "#94A3B8" },
+              { "label": "Clinical Impression", "value": 42, "color": "#94A3B8" }
+            ],
+            "insight": "Digital assessments detect 94% of cases vs. 42% from clinical impression alone"
+          },
+          {
+            "id": "adhd",
+            "label": "ADHD Accuracy",
+            "description": "Misdiagnosis reduction with objective testing",
+            "chartData": [
+              { "label": "Without Objective Testing", "value": 34, "color": "#EF4444" },
+              { "label": "With Digital Assessment", "value": 8, "color": "#2563EB" }
+            ],
+            "insight": "Objective testing reduces ADHD misdiagnosis by 76%"
+          },
+          {
+            "id": "traditional-vs-digital",
+            "label": "Traditional vs Digital",
+            "description": "Time and accuracy comparison",
+            "chartData": [
+              { "label": "Paper Tests (Accuracy)", "value": 65, "color": "#94A3B8" },
+              { "label": "Digital (Accuracy)", "value": 94, "color": "#2563EB" },
+              { "label": "Paper Tests (Time min)", "value": 25, "color": "#94A3B8" },
+              { "label": "Digital (Time min)", "value": 10, "color": "#2563EB" }
+            ],
+            "insight": "Digital assessments are 45% more accurate and 60% faster"
+          }
+        ],
+        "ctaText": "Download Diagnostic Risk Checklist",
+        "ctaAsset": "/assets/pdfs/diagnostic-risk-checklist.pdf"
+      },
+      "toolLens": {
+        "headline": "What Traditional Tools Miss",
+        "description": "Compare what you get—and what you miss—with common assessment approaches",
+        "tools": [
+          {
+            "tool": "Paper Screening (MMSE, MoCA)",
+            "whatYouGet": [
+              "Basic cognitive snapshot",
+              "Familiar to clinicians",
+              "Medicare reimbursable"
+            ],
+            "whatYouMiss": [
+              "Subtle cognitive changes",
+              "Practice effects on retest",
+              "Processing speed deficits",
+              "Executive function nuance"
+            ]
+          },
+          {
+            "tool": "Clinical Impression Only",
+            "whatYouGet": [
+              "No additional patient time",
+              "No cost for tools",
+              "Immediate decision"
+            ],
+            "whatYouMiss": [
+              "60% of dementia cases",
+              "Early-stage impairment",
+              "Objective documentation",
+              "Trend data over time"
+            ]
+          },
+          {
+            "tool": "Digital Cognitive Assessment",
+            "whatYouGet": [
+              "12+ cognitive domains tested",
+              "Normative comparison by age/education",
+              "Automatic scoring & reports",
+              "Longitudinal tracking"
+            ],
+            "whatYouMiss": [
+              "Nothing—comprehensive by design"
+            ]
+          }
+        ]
+      },
+      "timeline": {
+        "headline": "A Day in Your Life: Before & After Digital Assessment",
+        "before": {
+          "title": "Before Digital Assessment",
+          "steps": [
+            { "time": "9:00 AM", "title": "Patient Visit", "description": "Mrs. Johnson, 72, mentions forgetfulness. You note it but lack time for in-depth testing.", "icon": "user" },
+            { "time": "9:15 AM", "title": "Quick Screen", "description": "You attempt a clock drawing test. Results are borderline—hard to interpret.", "icon": "clock" },
+            { "time": "9:25 AM", "title": "Uncertain Next Steps", "description": "You recommend 'watchful waiting' and schedule a follow-up in 6 months.", "icon": "help-circle" },
+            { "time": "6 Months Later", "title": "Missed Window", "description": "Mrs. Johnson returns with significant decline. Early intervention window has passed.", "icon": "alert-triangle" }
+          ],
+          "outcome": "Delayed diagnosis, missed intervention opportunity, potential liability"
+        },
+        "after": {
+          "title": "With Digital Assessment",
+          "steps": [
+            { "time": "9:00 AM", "title": "Patient Visit", "description": "Mrs. Johnson mentions forgetfulness. You hand her a tablet for a 10-minute assessment.", "icon": "user" },
+            { "time": "9:10 AM", "title": "Automatic Analysis", "description": "Results show memory and processing speed deficits compared to age-matched norms.", "icon": "bar-chart" },
+            { "time": "9:15 AM", "title": "Clear Action Plan", "description": "Report provides differential guidance. You order labs and refer to neurology with objective data.", "icon": "clipboard-check" },
+            { "time": "2 Weeks Later", "title": "Early Intervention", "description": "Mrs. Johnson begins treatment. Family has time to plan. You've documented appropriately.", "icon": "heart" }
+          ],
+          "outcome": "Early diagnosis, timely intervention, better patient outcomes, documented care"
+        },
+        "ctaText": "View Sample Report",
+        "ctaLink": "/assets/pdfs/sample-report-primary-care.pdf"
+      },
+      "outcomes": {
+        "headline": "Proven Clinical Outcomes",
+        "subheadline": "Evidence-based results from practices like yours",
+        "metrics": [
+          { "id": "1", "stat": "94%", "label": "Detection Rate", "context": "for mild cognitive impairment", "impact": "Catch problems before they become crises", "tags": ["Dementia", "All"], "source": "Creyos Clinical Validation Study 2024" },
+          { "id": "2", "stat": "76%", "label": "Fewer Misdiagnoses", "context": "with objective ADHD testing", "impact": "Right diagnosis, right treatment, first time", "tags": ["ADHD", "All"], "source": "Journal of Attention Disorders 2023" },
+          { "id": "3", "stat": "10 min", "label": "Assessment Time", "context": "vs 25 min for paper tests", "impact": "More throughput without sacrificing quality", "tags": ["Operations", "All"] },
+          { "id": "4", "stat": "$127", "label": "Revenue per Test", "context": "with proper coding (96127, 96116)", "impact": "Cognitive screening that pays for itself", "tags": ["Operations", "All"] },
+          { "id": "5", "stat": "3.2x", "label": "More Referrals", "context": "accepted by specialists", "impact": "Objective data specialists trust", "tags": ["Dementia", "Operations", "All"] },
+          { "id": "6", "stat": "89%", "label": "Patient Satisfaction", "context": "with digital assessment experience", "impact": "Modern care patients appreciate", "tags": ["All"] }
+        ],
+        "ctaText": "Download Clinical Outcomes Pack",
+        "ctaAsset": "/assets/pdfs/clinical-outcomes-pack.pdf"
+      },
+      "roi": {
+        "headline": "Calculate Your ROI",
+        "description": "See the financial and operational impact for your practice",
+        "defaults": {
+          "monthlyVisits": 500,
+          "currentScreeningRate": 5,
+          "targetScreeningRate": 25,
+          "revenuePerCase": 127
+        },
+        "formulas": {
+          "extraBillables": "(monthlyVisits * (targetScreeningRate - currentScreeningRate) / 100) * revenuePerCase * 12",
+          "timeSaved": "monthlyVisits * targetScreeningRate / 100 * 15 / 60"
+        }
+      },
+      "checklist": {
+        "headline": "Your 90-Day Implementation Plan",
+        "phases": [
+          {
+            "phase": "Foundation",
+            "weeks": "Weeks 1-2",
+            "items": [
+              "Complete Creyos platform training",
+              "Configure patient demographics",
+              "Set up EHR integration",
+              "Identify pilot patient cohort"
+            ]
+          },
+          {
+            "phase": "Launch",
+            "weeks": "Weeks 3-4",
+            "items": [
+              "Begin screening pilot patients",
+              "Establish MA/nurse workflow",
+              "Review first 20 assessments",
+              "Refine administration process"
+            ]
+          },
+          {
+            "phase": "Scale",
+            "weeks": "Weeks 5-8",
+            "items": [
+              "Expand to all eligible patients",
+              "Train additional staff",
+              "Implement billing workflows",
+              "Track key metrics"
+            ]
+          },
+          {
+            "phase": "Optimize",
+            "weeks": "Weeks 9-12",
+            "items": [
+              "Analyze outcome data",
+              "Adjust screening protocols",
+              "Share results with team",
+              "Plan next quarter goals"
+            ]
+          }
+        ],
+        "ctaText": "Email Me the 90-Day Plan"
+      }
+    },
+    "neurology": {
+      "hero": {
+        "headline": "Objective cognitive data your referrals are missing",
+        "subheadline": "Referrals arrive with subjective complaints but no baseline data. Digital assessment gives you the objective metrics you need from day one.",
+        "ctaText": "Download Neurology Evidence Pack",
+        "ctaAsset": "/assets/pdfs/neurology-evidence-pack.pdf",
+        "stats": {
+          "label": "Referrals with Objective Data",
+          "diagnosed": 23,
+          "undiagnosed": 77,
+          "unit": "%"
+        }
+      },
+      "detectionGap": {
+        "narrative": "Neurologists receive referrals with vague complaints like 'memory problems' but rarely objective cognitive data. Digital assessments provide standardized, normative-compared metrics across 12+ cognitive domains before the first appointment—saving time and improving diagnostic accuracy.",
+        "tabs": [
+          {
+            "id": "dementia",
+            "label": "Dementia Subtyping",
+            "description": "Cognitive profiles help differentiate dementia types",
+            "chartData": [
+              { "label": "Alzheimer's Pattern", "value": 89, "color": "#7C3AED" },
+              { "label": "Vascular Pattern", "value": 84, "color": "#7C3AED" },
+              { "label": "Lewy Body Pattern", "value": 78, "color": "#7C3AED" },
+              { "label": "FTD Pattern", "value": 82, "color": "#7C3AED" }
+            ],
+            "insight": "Distinct cognitive profiles support differential diagnosis"
+          },
+          {
+            "id": "adhd",
+            "label": "Adult ADHD",
+            "description": "Objective attention and executive function metrics",
+            "chartData": [
+              { "label": "Attention Accuracy", "value": 92, "color": "#7C3AED" },
+              { "label": "Response Inhibition", "value": 88, "color": "#7C3AED" },
+              { "label": "Processing Speed", "value": 94, "color": "#7C3AED" }
+            ],
+            "insight": "Quantifiable metrics beyond self-report checklists"
+          },
+          {
+            "id": "traditional-vs-digital",
+            "label": "Traditional vs Digital",
+            "description": "Comprehensive domain coverage",
+            "chartData": [
+              { "label": "Paper (Domains)", "value": 4, "color": "#94A3B8" },
+              { "label": "Digital (Domains)", "value": 12, "color": "#7C3AED" },
+              { "label": "Paper (Precision)", "value": 65, "color": "#94A3B8" },
+              { "label": "Digital (Precision)", "value": 95, "color": "#7C3AED" }
+            ],
+            "insight": "12 cognitive domains vs 4 with traditional paper tests"
+          }
+        ],
+        "ctaText": "Download Domain Comparison Guide",
+        "ctaAsset": "/assets/pdfs/domain-comparison-guide.pdf"
+      },
+      "toolLens": {
+        "headline": "Beyond the Bedside Exam",
+        "description": "How digital assessment expands your diagnostic toolkit",
+        "tools": [
+          {
+            "tool": "Bedside Cognitive Exam",
+            "whatYouGet": [
+              "Immediate observation",
+              "Patient rapport",
+              "Gross impairment detection"
+            ],
+            "whatYouMiss": [
+              "Subtle deficits",
+              "Normative comparison",
+              "Quantifiable trends",
+              "Multi-domain precision"
+            ]
+          },
+          {
+            "tool": "Traditional Neuropsych Battery",
+            "whatYouGet": [
+              "Gold standard depth",
+              "Comprehensive evaluation",
+              "Insurance coverage"
+            ],
+            "whatYouMiss": [
+              "Weeks-long wait times",
+              "High cost ($1,500+)",
+              "Limited accessibility",
+              "Not feasible for screening"
+            ]
+          },
+          {
+            "tool": "Digital Cognitive Assessment",
+            "whatYouGet": [
+              "Same-day results",
+              "12+ domain coverage",
+              "Age/education norms",
+              "Longitudinal tracking",
+              "Affordable at scale"
+            ],
+            "whatYouMiss": [
+              "Nothing for screening purposes"
+            ]
+          }
+        ]
+      },
+      "timeline": {
+        "headline": "From Referral to Diagnosis: Before & After",
+        "before": {
+          "title": "Without Objective Pre-Visit Data",
+          "steps": [
+            { "time": "Day 1", "title": "Referral Received", "description": "New patient referral: '72F, memory complaints.' No objective data attached.", "icon": "file-text" },
+            { "time": "Week 2", "title": "Initial Visit", "description": "30-minute interview. Patient minimizes symptoms. Family not present.", "icon": "user" },
+            { "time": "Week 3", "title": "Order Tests", "description": "MRI, labs, and neuropsych consult ordered. 6-week wait for neuropsych.", "icon": "clock" },
+            { "time": "Week 10", "title": "Delayed Diagnosis", "description": "Finally have data to make diagnosis. Treatment initiation delayed 2+ months.", "icon": "alert-triangle" }
+          ],
+          "outcome": "10 weeks from referral to actionable diagnosis"
+        },
+        "after": {
+          "title": "With Digital Cognitive Baseline",
+          "steps": [
+            { "time": "Day 1", "title": "Referral + Assessment", "description": "Referral includes digital cognitive report with domain scores and norms.", "icon": "file-text" },
+            { "time": "Week 2", "title": "Informed Visit", "description": "Review objective data before appointment. Focus exam on areas of concern.", "icon": "bar-chart" },
+            { "time": "Week 2", "title": "Targeted Workup", "description": "Order only necessary tests. Skip full neuropsych for many patients.", "icon": "clipboard-check" },
+            { "time": "Week 4", "title": "Treatment Begins", "description": "Diagnosis confirmed with objective data. Treatment initiated. Baseline for tracking.", "icon": "heart" }
+          ],
+          "outcome": "4 weeks from referral to treatment initiation"
+        },
+        "ctaText": "View Neurology Sample Report",
+        "ctaLink": "/assets/pdfs/sample-report-neurology.pdf"
+      },
+      "outcomes": {
+        "headline": "Impact on Neurology Practice",
+        "subheadline": "Data from neurology practices using digital cognitive assessment",
+        "metrics": [
+          { "id": "1", "stat": "60%", "label": "Faster to Diagnosis", "context": "with pre-visit cognitive data", "impact": "Reduce time to treatment by weeks", "tags": ["Operations", "All"] },
+          { "id": "2", "stat": "45%", "label": "Fewer Full Neuropsych", "context": "referrals needed", "impact": "Reserve neuropsych for complex cases", "tags": ["Operations", "All"] },
+          { "id": "3", "stat": "12", "label": "Cognitive Domains", "context": "assessed in 10 minutes", "impact": "Comprehensive screening at scale", "tags": ["Dementia", "All"] },
+          { "id": "4", "stat": "89%", "label": "Pattern Match", "context": "with full neuropsych findings", "impact": "Digital screens correlate with gold standard", "tags": ["Research", "All"] },
+          { "id": "5", "stat": "3.8x", "label": "Better Documentation", "context": "for treatment decisions", "impact": "Objective basis for care plans", "tags": ["Dementia", "ADHD", "All"] },
+          { "id": "6", "stat": "$2,100", "label": "Saved per Patient", "context": "vs full neuropsych for screening", "impact": "Cost-effective triage pathway", "tags": ["Operations", "All"] }
+        ],
+        "ctaText": "Download Neurology Outcomes Report",
+        "ctaAsset": "/assets/pdfs/neurology-outcomes-report.pdf"
+      },
+      "roi": {
+        "headline": "Calculate Your Practice Impact",
+        "description": "See how digital assessment streamlines your neurology workflow",
+        "defaults": {
+          "monthlyVisits": 200,
+          "currentScreeningRate": 10,
+          "targetScreeningRate": 50,
+          "revenuePerCase": 185
+        },
+        "formulas": {
+          "extraBillables": "(monthlyVisits * (targetScreeningRate - currentScreeningRate) / 100) * revenuePerCase * 12",
+          "timeSaved": "monthlyVisits * targetScreeningRate / 100 * 20 / 60"
+        }
+      },
+      "checklist": {
+        "headline": "Your 90-Day Integration Plan",
+        "phases": [
+          {
+            "phase": "Setup",
+            "weeks": "Weeks 1-2",
+            "items": [
+              "Configure domain-specific assessments",
+              "Set up referring physician portal",
+              "Train intake coordinators",
+              "Create referral guidelines for PCPs"
+            ]
+          },
+          {
+            "phase": "Pilot",
+            "weeks": "Weeks 3-4",
+            "items": [
+              "Begin with new memory clinic referrals",
+              "Establish pre-visit assessment workflow",
+              "Review report interpretation with team",
+              "Gather initial feedback"
+            ]
+          },
+          {
+            "phase": "Expand",
+            "weeks": "Weeks 5-8",
+            "items": [
+              "Add ADHD and concussion assessments",
+              "Implement longitudinal tracking",
+              "Train on billing optimization",
+              "Develop patient education materials"
+            ]
+          },
+          {
+            "phase": "Refine",
+            "weeks": "Weeks 9-12",
+            "items": [
+              "Analyze diagnostic accuracy data",
+              "Optimize referral criteria with PCPs",
+              "Establish outcome tracking metrics",
+              "Plan research applications"
+            ]
+          }
+        ],
+        "ctaText": "Email Me the 90-Day Plan"
+      }
+    },
+    "mental-health": {
+      "hero": {
+        "headline": "ADHD diagnosis shouldn't be a guessing game",
+        "subheadline": "34% of ADHD diagnoses are inaccurate without objective testing. Digital cognitive assessment provides the data you need for confident diagnosis.",
+        "ctaText": "Download ADHD Assessment Guide",
+        "ctaAsset": "/assets/pdfs/adhd-assessment-guide.pdf",
+        "stats": {
+          "label": "ADHD Misdiagnosis Rate",
+          "diagnosed": 34,
+          "undiagnosed": 66,
+          "unit": "%"
+        }
+      },
+      "detectionGap": {
+        "narrative": "ADHD diagnosis relies heavily on self-report and observation—both prone to bias. Objective cognitive testing measures attention, inhibition, and processing speed directly, reducing misdiagnosis and guiding treatment selection.",
+        "tabs": [
+          {
+            "id": "dementia",
+            "label": "Cognitive vs Mood",
+            "description": "Differentiating cognitive impairment from depression",
+            "chartData": [
+              { "label": "Cognitive Patterns Identified", "value": 87, "color": "#059669" },
+              { "label": "Mood Patterns Identified", "value": 91, "color": "#059669" },
+              { "label": "Mixed Presentations", "value": 82, "color": "#059669" }
+            ],
+            "insight": "Objective data helps distinguish cognitive disorders from mood symptoms"
+          },
+          {
+            "id": "adhd",
+            "label": "ADHD Accuracy",
+            "description": "Diagnostic accuracy with objective testing",
+            "chartData": [
+              { "label": "Self-Report Only", "value": 66, "color": "#94A3B8" },
+              { "label": "Clinical Interview", "value": 72, "color": "#94A3B8" },
+              { "label": "With Objective Testing", "value": 92, "color": "#059669" }
+            ],
+            "insight": "Adding objective testing increases diagnostic accuracy by 26%"
+          },
+          {
+            "id": "traditional-vs-digital",
+            "label": "Assessment Methods",
+            "description": "Comparing ADHD evaluation approaches",
+            "chartData": [
+              { "label": "Rating Scales (Sensitivity)", "value": 68, "color": "#94A3B8" },
+              { "label": "Digital CPT (Sensitivity)", "value": 91, "color": "#059669" },
+              { "label": "Rating Scales (Specificity)", "value": 62, "color": "#94A3B8" },
+              { "label": "Digital CPT (Specificity)", "value": 88, "color": "#059669" }
+            ],
+            "insight": "Digital assessment provides superior sensitivity and specificity"
+          }
+        ],
+        "ctaText": "Download ADHD Diagnostic Protocol",
+        "ctaAsset": "/assets/pdfs/adhd-diagnostic-protocol.pdf"
+      },
+      "toolLens": {
+        "headline": "Beyond Checklists and Self-Report",
+        "description": "What objective cognitive testing adds to your ADHD evaluation",
+        "tools": [
+          {
+            "tool": "Rating Scales (Conners, ASRS)",
+            "whatYouGet": [
+              "Quick administration",
+              "Patient perspective",
+              "Familiar format"
+            ],
+            "whatYouMiss": [
+              "Objective performance data",
+              "Malingering detection",
+              "Treatment response metrics",
+              "Specificity for ADHD vs anxiety"
+            ]
+          },
+          {
+            "tool": "Clinical Interview Alone",
+            "whatYouGet": [
+              "Detailed history",
+              "Context and nuance",
+              "Therapeutic rapport"
+            ],
+            "whatYouMiss": [
+              "Quantifiable deficits",
+              "Age-normed comparison",
+              "Tracking over time",
+              "Documentation for appeals"
+            ]
+          },
+          {
+            "tool": "Digital Cognitive Assessment",
+            "whatYouGet": [
+              "Objective attention metrics",
+              "Response inhibition data",
+              "Processing speed measures",
+              "Validity indicators",
+              "Pre/post treatment comparison"
+            ],
+            "whatYouMiss": [
+              "Nothing—complements clinical judgment"
+            ]
+          }
+        ]
+      },
+      "timeline": {
+        "headline": "ADHD Evaluation: Before & After Objective Testing",
+        "before": {
+          "title": "Without Objective Testing",
+          "steps": [
+            { "time": "Visit 1", "title": "Initial Evaluation", "description": "Patient reports attention problems. Conners scale completed. Scores elevated.", "icon": "clipboard" },
+            { "time": "Visit 1", "title": "Uncertain Diagnosis", "description": "Is it ADHD, anxiety, sleep issues, or all three? Hard to tell from self-report.", "icon": "help-circle" },
+            { "time": "Visit 2", "title": "Trial Treatment", "description": "Start stimulant trial. Patient reports 'feeling better' but unclear if objective improvement.", "icon": "pill" },
+            { "time": "Ongoing", "title": "Ongoing Uncertainty", "description": "Dose adjustments based on subjective report. No objective measure of treatment response.", "icon": "alert-triangle" }
+          ],
+          "outcome": "Diagnosis and treatment based primarily on subjective data"
+        },
+        "after": {
+          "title": "With Objective Testing",
+          "steps": [
+            { "time": "Visit 1", "title": "Comprehensive Baseline", "description": "10-minute digital assessment plus clinical interview. Objective attention deficits confirmed.", "icon": "bar-chart" },
+            { "time": "Visit 1", "title": "Confident Diagnosis", "description": "Objective data differentiates ADHD from anxiety. Clear pattern in attention and inhibition.", "icon": "check-circle" },
+            { "time": "Visit 2", "title": "Measured Response", "description": "Repeat assessment shows 40% improvement in attention metrics. Objective treatment validation.", "icon": "trending-up" },
+            { "time": "Ongoing", "title": "Data-Driven Care", "description": "Dose optimization based on objective data. Clear documentation for prior auths.", "icon": "clipboard-check" }
+          ],
+          "outcome": "Objective data supports diagnosis, treatment, and documentation"
+        },
+        "ctaText": "View ADHD Sample Report",
+        "ctaLink": "/assets/pdfs/sample-report-adhd.pdf"
+      },
+      "outcomes": {
+        "headline": "Evidence for Objective ADHD Testing",
+        "subheadline": "Research-backed outcomes for adding cognitive assessment",
+        "metrics": [
+          { "id": "1", "stat": "76%", "label": "Fewer Misdiagnoses", "context": "when adding objective testing", "impact": "Right diagnosis, right treatment, first time", "tags": ["ADHD", "All"] },
+          { "id": "2", "stat": "40%", "label": "Measurable Improvement", "context": "in attention with treatment", "impact": "Objective proof of treatment response", "tags": ["ADHD", "All"] },
+          { "id": "3", "stat": "92%", "label": "Diagnostic Accuracy", "context": "with combined approach", "impact": "Interview + objective data = confident diagnosis", "tags": ["ADHD", "All"] },
+          { "id": "4", "stat": "87%", "label": "Prior Auth Success", "context": "with objective documentation", "impact": "Data insurance companies accept", "tags": ["Operations", "All"] },
+          { "id": "5", "stat": "2.3x", "label": "Faster Optimization", "context": "of medication dosing", "impact": "Objective metrics guide titration", "tags": ["ADHD", "Operations", "All"] },
+          { "id": "6", "stat": "94%", "label": "Patient Confidence", "context": "in their diagnosis", "impact": "Objective validation reduces doubt", "tags": ["ADHD", "All"] }
+        ],
+        "ctaText": "Download ADHD Evidence Summary",
+        "ctaAsset": "/assets/pdfs/adhd-evidence-summary.pdf"
+      },
+      "roi": {
+        "headline": "Calculate Your Practice Impact",
+        "description": "See the value of adding objective ADHD testing",
+        "defaults": {
+          "monthlyVisits": 150,
+          "currentScreeningRate": 20,
+          "targetScreeningRate": 60,
+          "revenuePerCase": 145
+        },
+        "formulas": {
+          "extraBillables": "(monthlyVisits * (targetScreeningRate - currentScreeningRate) / 100) * revenuePerCase * 12",
+          "timeSaved": "monthlyVisits * targetScreeningRate / 100 * 12 / 60"
+        }
+      },
+      "checklist": {
+        "headline": "Your 90-Day ADHD Assessment Integration",
+        "phases": [
+          {
+            "phase": "Preparation",
+            "weeks": "Weeks 1-2",
+            "items": [
+              "Complete ADHD assessment training",
+              "Set up patient self-scheduling",
+              "Configure report preferences",
+              "Prepare patient education materials"
+            ]
+          },
+          {
+            "phase": "Implementation",
+            "weeks": "Weeks 3-4",
+            "items": [
+              "Begin testing new ADHD evaluations",
+              "Establish baseline protocol",
+              "Review first batch of reports",
+              "Gather patient feedback"
+            ]
+          },
+          {
+            "phase": "Expansion",
+            "weeks": "Weeks 5-8",
+            "items": [
+              "Add treatment monitoring assessments",
+              "Implement pre/post protocols",
+              "Train on medication response tracking",
+              "Build prior auth workflows"
+            ]
+          },
+          {
+            "phase": "Optimization",
+            "weeks": "Weeks 9-12",
+            "items": [
+              "Analyze diagnostic accuracy data",
+              "Refine screening criteria",
+              "Develop outcome reports",
+              "Plan group comparisons"
+            ]
+          }
+        ],
+        "ctaText": "Email Me the 90-Day Plan"
+      }
+    },
+    "corporate-wellness": {
+      "hero": {
+        "headline": "Your workforce has cognitive risks you're not measuring",
+        "subheadline": "Cognitive health impacts productivity, safety, and healthcare costs. Digital assessment provides the data to protect your most valuable asset.",
+        "ctaText": "Download Workforce Cognitive Guide",
+        "ctaAsset": "/assets/pdfs/workforce-cognitive-guide.pdf",
+        "stats": {
+          "label": "Cognitive Issues Undetected",
+          "diagnosed": 15,
+          "undiagnosed": 85,
+          "unit": "%"
+        }
+      },
+      "detectionGap": {
+        "narrative": "Cognitive health is the foundation of workplace performance, yet it's rarely measured. From executive function to processing speed, digital assessment provides objective baseline and monitoring data to identify risks before they impact performance or safety.",
+        "tabs": [
+          {
+            "id": "dementia",
+            "label": "Early Detection",
+            "description": "Identifying cognitive decline before performance impact",
+            "chartData": [
+              { "label": "Performance Review Detection", "value": 28, "color": "#94A3B8" },
+              { "label": "Self-Report Detection", "value": 35, "color": "#94A3B8" },
+              { "label": "Digital Assessment Detection", "value": 87, "color": "#DC2626" }
+            ],
+            "insight": "Digital assessment catches cognitive changes 3x earlier"
+          },
+          {
+            "id": "adhd",
+            "label": "ADHD in Workplace",
+            "description": "Undiagnosed ADHD impact on workforce",
+            "chartData": [
+              { "label": "Adults with Undiagnosed ADHD", "value": 75, "color": "#DC2626" },
+              { "label": "Productivity Loss", "value": 22, "color": "#DC2626" },
+              { "label": "Higher Turnover Risk", "value": 33, "color": "#DC2626" }
+            ],
+            "insight": "75% of adults with ADHD are undiagnosed—affecting your workforce"
+          },
+          {
+            "id": "traditional-vs-digital",
+            "label": "Wellness Programs",
+            "description": "Cognitive vs traditional wellness metrics",
+            "chartData": [
+              { "label": "Physical Health Programs", "value": 89, "color": "#94A3B8" },
+              { "label": "Mental Health Programs", "value": 67, "color": "#94A3B8" },
+              { "label": "Cognitive Health Programs", "value": 12, "color": "#DC2626" }
+            ],
+            "insight": "Only 12% of companies measure cognitive health"
+          }
+        ],
+        "ctaText": "Download Workplace Cognitive ROI",
+        "ctaAsset": "/assets/pdfs/workplace-cognitive-roi.pdf"
+      },
+      "toolLens": {
+        "headline": "Beyond Traditional Wellness Metrics",
+        "description": "Why cognitive health deserves measurement",
+        "tools": [
+          {
+            "tool": "Physical Health Metrics",
+            "whatYouGet": [
+              "Biometric screenings",
+              "Activity tracking",
+              "Chronic disease management"
+            ],
+            "whatYouMiss": [
+              "Cognitive performance",
+              "Attention and focus",
+              "Decision-making quality",
+              "Early neurological changes"
+            ]
+          },
+          {
+            "tool": "Mental Health Surveys",
+            "whatYouGet": [
+              "Stress indicators",
+              "Burnout risk",
+              "Engagement levels"
+            ],
+            "whatYouMiss": [
+              "Objective cognitive function",
+              "Performance correlation",
+              "Individual baselines",
+              "Trend data"
+            ]
+          },
+          {
+            "tool": "Digital Cognitive Assessment",
+            "whatYouGet": [
+              "Objective cognitive baselines",
+              "12+ domain measurement",
+              "Population analytics",
+              "Trend monitoring",
+              "Return-to-work support"
+            ],
+            "whatYouMiss": [
+              "Nothing—comprehensive brain health"
+            ]
+          }
+        ]
+      },
+      "timeline": {
+        "headline": "A Day in HR: Before & After Cognitive Assessment",
+        "before": {
+          "title": "Without Cognitive Baseline",
+          "steps": [
+            { "time": "Month 1", "title": "New Hire Onboarding", "description": "Standard orientation. No cognitive baseline established.", "icon": "user-plus" },
+            { "time": "Month 8", "title": "Performance Issues", "description": "Manager reports declining work quality. Unclear if health-related.", "icon": "alert-circle" },
+            { "time": "Month 9", "title": "Difficult Conversations", "description": "HR involvement. No objective data to understand cause.", "icon": "message-circle" },
+            { "time": "Month 12", "title": "Termination or Leave", "description": "Situation escalates. Lost productivity, potential liability.", "icon": "user-x" }
+          ],
+          "outcome": "No early warning, difficult conversations, potential liability"
+        },
+        "after": {
+          "title": "With Cognitive Baseline",
+          "steps": [
+            { "time": "Month 1", "title": "Baseline Established", "description": "New hire completes 15-minute cognitive assessment. Baseline documented.", "icon": "clipboard-check" },
+            { "time": "Month 8", "title": "Early Detection", "description": "Quarterly wellness check shows cognitive change. Proactive conversation.", "icon": "activity" },
+            { "time": "Month 9", "title": "Supportive Intervention", "description": "Objective data guides accommodation or medical referral.", "icon": "heart" },
+            { "time": "Month 12", "title": "Successful Outcome", "description": "Employee supported. Productivity maintained. Loyalty increased.", "icon": "star" }
+          ],
+          "outcome": "Early warning, supportive intervention, better outcomes"
+        },
+        "ctaText": "View Corporate Case Study",
+        "ctaLink": "/assets/pdfs/corporate-case-study.pdf"
+      },
+      "outcomes": {
+        "headline": "Business Impact of Cognitive Wellness",
+        "subheadline": "ROI from leading organizations",
+        "metrics": [
+          { "id": "1", "stat": "23%", "label": "Productivity Increase", "context": "after addressing cognitive issues", "impact": "Direct bottom-line impact", "tags": ["Operations", "All"] },
+          { "id": "2", "stat": "41%", "label": "Fewer Safety Incidents", "context": "in high-risk roles with screening", "impact": "Protect your people and reduce costs", "tags": ["Operations", "All"] },
+          { "id": "3", "stat": "$3,400", "label": "Saved per Employee", "context": "annually in healthcare costs", "impact": "Early intervention reduces claims", "tags": ["Operations", "All"] },
+          { "id": "4", "stat": "67%", "label": "Faster Return-to-Work", "context": "after leave with cognitive tracking", "impact": "Objective readiness assessment", "tags": ["Operations", "All"] },
+          { "id": "5", "stat": "89%", "label": "Employee Satisfaction", "context": "with cognitive wellness program", "impact": "Talent attraction and retention", "tags": ["All"] },
+          { "id": "6", "stat": "4.2x", "label": "Program ROI", "context": "in first year", "impact": "Investment that pays for itself", "tags": ["Operations", "All"] }
+        ],
+        "ctaText": "Download Corporate Outcomes Report",
+        "ctaAsset": "/assets/pdfs/corporate-outcomes-report.pdf"
+      },
+      "roi": {
+        "headline": "Calculate Your Workforce ROI",
+        "description": "See the business case for cognitive wellness",
+        "defaults": {
+          "monthlyVisits": 1000,
+          "currentScreeningRate": 0,
+          "targetScreeningRate": 80,
+          "revenuePerCase": 3400
+        },
+        "formulas": {
+          "extraBillables": "(monthlyVisits * (targetScreeningRate - currentScreeningRate) / 100) * revenuePerCase / 12",
+          "timeSaved": "monthlyVisits * targetScreeningRate / 100 * 0.5"
+        }
+      },
+      "checklist": {
+        "headline": "Your 90-Day Cognitive Wellness Launch",
+        "phases": [
+          {
+            "phase": "Planning",
+            "weeks": "Weeks 1-2",
+            "items": [
+              "Define program objectives",
+              "Identify pilot department",
+              "Configure platform for enterprise",
+              "Develop communication plan"
+            ]
+          },
+          {
+            "phase": "Pilot",
+            "weeks": "Weeks 3-4",
+            "items": [
+              "Launch with pilot group",
+              "Establish baseline assessments",
+              "Train HR and managers",
+              "Collect initial feedback"
+            ]
+          },
+          {
+            "phase": "Rollout",
+            "weeks": "Weeks 5-8",
+            "items": [
+              "Expand to additional departments",
+              "Integrate with wellness platform",
+              "Develop population analytics",
+              "Create manager dashboards"
+            ]
+          },
+          {
+            "phase": "Sustain",
+            "weeks": "Weeks 9-12",
+            "items": [
+              "Analyze program ROI",
+              "Refine protocols based on data",
+              "Develop case studies",
+              "Plan year-two expansion"
+            ]
+          }
+        ],
+        "ctaText": "Email Me the 90-Day Plan"
+      }
+    }
+  },
+  "shared": {
+    "finalCTA": {
+      "headline": "Ready to Close the Cognitive Assessment Gap?",
+      "cards": [
+        {
+          "personaId": "primary-care",
+          "headline": "For Primary Care",
+          "description": "Everything you need to start cognitive screening in your practice",
+          "primaryCta": {
+            "text": "Download PCP Playbook",
+            "asset": "/assets/pdfs/pcp-playbook.pdf"
+          },
+          "secondaryCta": {
+            "text": "Book a Demo",
+            "link": "https://calendly.com/creyos/demo"
+          }
+        },
+        {
+          "personaId": "neurology",
+          "headline": "For Neurology",
+          "description": "Streamline referrals and enhance diagnostic precision",
+          "primaryCta": {
+            "text": "Download Neuro Toolkit",
+            "asset": "/assets/pdfs/neuro-toolkit.pdf"
+          },
+          "secondaryCta": {
+            "text": "Schedule Consultation",
+            "link": "https://calendly.com/creyos/neuro"
+          }
+        },
+        {
+          "personaId": "mental-health",
+          "headline": "For Mental Health",
+          "description": "Objective testing for confident ADHD diagnosis",
+          "primaryCta": {
+            "text": "Download ADHD Guide",
+            "asset": "/assets/pdfs/adhd-complete-guide.pdf"
+          },
+          "secondaryCta": {
+            "text": "Request Trial",
+            "link": "https://calendly.com/creyos/mh-trial"
+          }
+        },
+        {
+          "personaId": "corporate-wellness",
+          "headline": "For Corporate Wellness",
+          "description": "Protect your workforce with cognitive health programs",
+          "primaryCta": {
+            "text": "Download Corporate Kit",
+            "asset": "/assets/pdfs/corporate-wellness-kit.pdf"
+          },
+          "secondaryCta": {
+            "text": "Enterprise Demo",
+            "link": "https://calendly.com/creyos/enterprise"
+          }
+        }
+      ]
+    },
+    "filterTags": ["All", "Dementia", "ADHD", "Operations", "Research"]
+  }
+}
+

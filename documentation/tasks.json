@@ -1,0 +1,274 @@
+[
+  {
+    "id": 1,
+    "title": "Project Setup and Foundation",
+    "status": "pending",
+    "details": "Create a new Next.js project with TypeScript template. Install and configure Tailwind CSS with custom theme file containing Creyos brand color tokens, fonts, and spacing. Set up shadcn/ui component library for accessible UI components. Create the project folder structure with components, data, and types directories. Initialize the reportMetrics.json file with placeholder data structure for all personas, charts, and metrics. Set up ESLint and Prettier for code quality. Configure the basic layout component with responsive breakpoints (320px mobile, 768px tablet, 1024px+ desktop). Ensure HTTPS configuration and basic security headers are in place.",
+    "priority": "high",
+    "subtasks": [
+      {
+        "id": 1,
+        "title": "Initialize Next.js Project with TypeScript",
+        "status": "pending",
+        "details": "Run 'npx create-next-app@latest --typescript --tailwind --eslint --app' to create the project. Create the following directory structure: components/, data/, types/, lib/. Set up basic TypeScript configuration with strict mode enabled. Initialize package.json with project metadata and configure scripts for development, build, and start.",
+        "description": "Create a new Next.js project using the TypeScript template and configure the basic project structure with essential directories and files.",
+        "dependencies": [],
+        "testStrategy": "Verify project builds successfully with 'npm run build' and starts with 'npm run dev'. Check TypeScript compilation passes without errors."
+      },
+      {
+        "id": 2,
+        "title": "Configure Tailwind CSS with Creyos Brand Tokens",
+        "status": "pending",
+        "details": "Create tailwind.config.js with custom theme extending default configuration. Define Creyos brand colors (primary, secondary, accent, neutral palettes), typography scale (font families, sizes, weights), spacing scale, and responsive breakpoints (320px mobile, 768px tablet, 1024px+ desktop). Create a separate theme.js file for token management. Configure CSS variables for dynamic theming support.",
+        "description": "Set up Tailwind CSS configuration with custom theme file containing Creyos brand color tokens, fonts, and spacing values.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Create test components using custom theme tokens. Verify responsive breakpoints work correctly across different screen sizes. Validate CSS variables are properly applied."
+      },
+      {
+        "id": 3,
+        "title": "Install and Configure shadcn/ui Component Library",
+        "status": "pending",
+        "details": "Run 'npx shadcn-ui@latest init' to initialize shadcn/ui. Configure components.json with proper paths and style preferences. Install essential components like Button, Card, Input, Select, and Dialog. Create a components/ui directory structure. Set up proper TypeScript types for component props and configure proper import aliases in tsconfig.json.",
+        "description": "Set up shadcn/ui component library for accessible UI components and configure the components.json file for proper integration.",
+        "dependencies": [
+          2
+        ],
+        "testStrategy": "Import and render basic shadcn/ui components to verify they work with custom Tailwind theme. Test component accessibility features and proper TypeScript integration."
+      },
+      {
+        "id": 4,
+        "title": "Create Project Structure and JSON Data Configuration",
+        "status": "pending",
+        "details": "Create organized folder structure: components/charts/, components/layout/, data/, types/, lib/utils/. Initialize reportMetrics.json in the data directory with structured placeholder data including personas (executive, manager, analyst), chart types (bar, line, pie, scatter), and sample metrics. Create TypeScript interfaces in types/ directory for data structures. Set up data loading utilities in lib/ directory.",
+        "description": "Establish the complete project folder structure and initialize the reportMetrics.json file with placeholder data structure for all personas, charts, and metrics.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Verify JSON data loads correctly and matches TypeScript interfaces. Test data structure completeness for all required personas and chart types."
+      },
+      {
+        "id": 5,
+        "title": "Configure Development Tools and Basic Layout",
+        "status": "pending",
+        "details": "Configure ESLint with Next.js and TypeScript rules, set up Prettier with consistent formatting rules. Create .eslintrc.json and .prettierrc files. Set up next.config.js with security headers (CSP, HSTS, X-Frame-Options). Create a basic Layout component in components/layout/ with responsive navigation, header, and main content areas. Configure proper meta tags and viewport settings for mobile responsiveness.",
+        "description": "Set up ESLint, Prettier for code quality, configure basic security headers, and create the responsive layout component with proper HTTPS configuration.",
+        "dependencies": [
+          3,
+          4
+        ],
+        "testStrategy": "Run ESLint and Prettier to verify code quality rules are enforced. Test layout component responsiveness across all breakpoints. Verify security headers are properly set in browser developer tools."
+      }
+    ],
+    "description": "Initialize Next.js project with TypeScript, configure Tailwind CSS with Creyos brand tokens, set up shadcn/ui components, and create the basic project structure with static JSON data configuration.",
+    "dependencies": [],
+    "testStrategy": "Verify project builds successfully with TypeScript compilation. Test responsive breakpoints across devices. Validate Tailwind theme tokens are properly applied. Confirm shadcn/ui components render correctly. Test JSON data loading and TypeScript type safety."
+  },
+  {
+    "id": 2,
+    "title": "Core Page Structure and Persona System",
+    "status": "pending",
+    "details": "Create the main cognitive-assessment-gap page with seven distinct sections as outlined in the PRD. Implement the sticky persona selector component that remains visible during scroll and collapses gracefully on mobile. Build the persona switching logic using React state management to dynamically update headlines, copy, charts, and CTAs based on selected persona (Primary Care, Neurology, Mental Health/ADHD, Corporate Wellness). Ensure proper SSR hydration without mismatch warnings. Implement ARIA live regions for accessibility to announce content changes to screen readers. Create TypeScript interfaces for persona-specific content structure. Add keyboard navigation support for the persona selector.",
+    "priority": "high",
+    "subtasks": [
+      {
+        "id": 1,
+        "title": "Create Main Page Layout with Seven Sections",
+        "status": "pending",
+        "details": "Create the main page component with semantic HTML structure for all seven sections. Implement CSS Grid or Flexbox layout system for responsive design. Set up proper heading hierarchy (h1, h2, h3) for accessibility. Create placeholder content for each section that will be populated by persona-specific data. Ensure mobile-first responsive design with appropriate breakpoints. Use CSS custom properties for theme variables that can be easily updated.",
+        "description": "Build the foundational HTML structure and CSS layout for the cognitive-assessment-gap page with seven distinct sections as outlined in the PRD. Implement responsive design patterns and establish the base component hierarchy.",
+        "dependencies": [],
+        "testStrategy": "Test responsive layout across different screen sizes. Verify semantic HTML structure with accessibility tools. Check that all sections render correctly with placeholder content."
+      },
+      {
+        "id": 2,
+        "title": "Implement Sticky Persona Selector Component",
+        "status": "pending",
+        "details": "Build a sticky header component using position: sticky or position: fixed with scroll event handling. Implement responsive behavior that shows full selector on desktop and collapses to a dropdown or hamburger menu on mobile. Add smooth scroll animations and proper z-index layering. Include visual indicators for the currently selected persona. Implement touch-friendly interactions for mobile devices with appropriate tap targets (minimum 44px). Add CSS transitions for smooth state changes.",
+        "description": "Create a sticky navigation component that houses the persona selector, remains visible during scroll, and collapses gracefully on mobile devices with proper touch interactions.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Test sticky behavior during page scroll on various devices. Verify mobile collapse functionality and touch interactions. Check z-index stacking with other page elements."
+      },
+      {
+        "id": 3,
+        "title": "Create TypeScript Interfaces and Content Structure",
+        "status": "pending",
+        "details": "Create TypeScript interfaces for PersonaContent, SectionContent, ChartData, and CTAContent. Define union types for the four personas (Primary Care, Neurology, Mental Health/ADHD, Corporate Wellness). Structure content objects with nested properties for headlines, copy, charts, and CTAs for each section. Implement type guards for runtime type checking. Create a content registry or configuration object that maps personas to their respective content. Ensure type safety for all content properties including optional fields.",
+        "description": "Define comprehensive TypeScript interfaces for persona-specific content structure and create the data models that will drive the dynamic content system across all four personas.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Verify TypeScript compilation without errors. Test type checking with invalid content structures. Validate that all persona content objects conform to defined interfaces."
+      },
+      {
+        "id": 4,
+        "title": "Build React State Management and Persona Switching Logic",
+        "status": "pending",
+        "details": "Create a PersonaContext using React Context API to manage global persona state. Implement usePersona hook for components to access current persona and switching function. Build persona switching logic that updates all content simultaneously across sections. Ensure state updates trigger re-renders only for affected components using React.memo and useMemo optimizations. Implement proper error boundaries for state management failures. Add loading states during persona transitions if needed for heavy content updates.",
+        "description": "Implement React state management system using Context API or Redux to handle persona switching and dynamic content updates across all page sections without page reloads.",
+        "dependencies": [
+          2,
+          3
+        ],
+        "testStrategy": "Test persona switching across all sections without page reloads. Verify state consistency across components. Check for unnecessary re-renders using React DevTools. Test error handling for invalid persona states."
+      },
+      {
+        "id": 5,
+        "title": "Implement Accessibility Features and SSR Hydration",
+        "status": "pending",
+        "details": "Implement ARIA live regions that announce content changes to screen readers when personas are switched. Add keyboard navigation support with proper focus management and tab order. Implement skip links and focus indicators. Ensure SSR hydration works correctly by matching server-rendered content with client-side state. Add suppressHydrationWarning only where necessary and fix any hydration mismatches. Implement proper ARIA labels and roles for the persona selector. Add reduced motion support for users with vestibular disorders.",
+        "description": "Add comprehensive accessibility features including ARIA live regions, keyboard navigation, and ensure proper SSR hydration without mismatch warnings for the persona switching system.",
+        "dependencies": [
+          4
+        ],
+        "testStrategy": "Test with screen readers (NVDA, JAWS, VoiceOver) to verify announcements. Validate keyboard navigation and focus management. Check SSR hydration in browser dev tools for warnings. Test with accessibility auditing tools like axe-core."
+      }
+    ],
+    "description": "Build the main page layout with sticky persona selector and implement the dynamic persona switching system that updates content without page reloads.",
+    "dependencies": [
+      1
+    ],
+    "testStrategy": "Test persona switching functionality across all sections. Verify no page reloads occur during persona changes. Test sticky selector behavior on different screen sizes. Validate accessibility with screen readers and keyboard navigation. Confirm SSR hydration works correctly without console warnings."
+  },
+  {
+    "id": 3,
+    "title": "Interactive Components and Data Visualization",
+    "status": "pending",
+    "details": "Build the animated hero visualization with bars comparing diagnosed vs undiagnosed cases, animated on page load. Create tabbed chart component for Detection Gap section with three tabs (Dementia, ADHD, Traditional vs Digital) using Recharts library with tree-shaking optimization. Implement the Tool Lens toggle with side-by-side comparison columns. Build the Day-in-the-Life timeline component with Before/After modes and expandable step descriptions. Create the filterable Outcomes Dashboard with metric cards tagged by category (All, Dementia, ADHD, Operations, Research). Develop the ROI Calculator widget with slider inputs and real-time calculation outputs. Ensure all components are responsive and accessible with proper ARIA labels and keyboard support. Implement hover tooltips and loading states for better UX.",
+    "priority": "medium",
+    "subtasks": [
+      {
+        "id": 1,
+        "title": "Setup Recharts Library and Base Chart Components",
+        "status": "pending",
+        "details": "Install recharts package and configure webpack/bundler for tree-shaking to minimize bundle size. Create reusable BaseChart wrapper component with common props (responsive container, theme colors, accessibility attributes). Set up chart color palette and typography constants. Implement common chart utilities for data formatting and tooltip rendering. Configure ARIA labels and keyboard navigation patterns that will be inherited by all chart components.",
+        "description": "Install and configure Recharts library with tree-shaking optimization. Create base chart wrapper components and establish common styling patterns for all visualizations.",
+        "dependencies": [],
+        "testStrategy": "Verify tree-shaking reduces bundle size. Test base components render correctly and are accessible via keyboard navigation."
+      },
+      {
+        "id": 2,
+        "title": "Implement Animated Hero Chart Visualization",
+        "status": "pending",
+        "details": "Create HeroChart component using Recharts BarChart with custom animation timing. Implement entrance animations using Recharts' built-in animation props with staggered delays for visual appeal. Add responsive breakpoints for mobile/tablet/desktop layouts. Include hover tooltips showing exact values and percentages. Ensure proper ARIA labels describe the data being visualized. Add loading skeleton state while data loads.",
+        "description": "Build the animated hero chart component that displays diagnosed vs undiagnosed cases with smooth bar animations triggered on page load.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Test animation timing and smoothness across different devices. Verify data accuracy in tooltips. Test responsive behavior and accessibility with screen readers."
+      },
+      {
+        "id": 3,
+        "title": "Create Tabbed Detection Gap Charts Component",
+        "status": "pending",
+        "details": "Create TabbedCharts component with tab navigation using accessible tab pattern (ARIA roles, keyboard navigation). Implement three chart types: comparison charts for Dementia and ADHD detection rates, and side-by-side comparison for Traditional vs Digital approaches. Use appropriate Recharts components (BarChart, LineChart, or ComposedChart) based on data type. Add smooth transitions between tabs and lazy loading for chart data. Implement proper focus management when switching tabs.",
+        "description": "Build the tabbed chart interface for the Detection Gap section with three tabs (Dementia, ADHD, Traditional vs Digital) each containing specific chart visualizations.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Test tab navigation with keyboard and screen readers. Verify chart data loads correctly for each tab. Test responsive behavior and smooth transitions."
+      },
+      {
+        "id": 4,
+        "title": "Build Tool Lens Toggle and Timeline Workflow Components",
+        "status": "pending",
+        "details": "Create ToolLensToggle component with accessible toggle switch and side-by-side comparison columns that update dynamically. Build Timeline component with Before/After mode toggle, expandable step cards with smooth accordion animations. Implement proper state management for expanded/collapsed states. Add keyboard navigation for timeline steps and ensure proper focus management. Include visual indicators for interactive elements and loading states for dynamic content.",
+        "description": "Implement the Tool Lens toggle with side-by-side comparison view and the Day-in-the-Life timeline component with Before/After modes and expandable descriptions.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Test toggle functionality and comparison view updates. Verify timeline navigation and expansion behavior. Test keyboard accessibility and focus management."
+      },
+      {
+        "id": 5,
+        "title": "Develop Outcomes Dashboard and ROI Calculator",
+        "status": "pending",
+        "details": "Build OutcomesDashboard with filter buttons (All, Dementia, ADHD, Operations, Research) and responsive metric card grid. Implement smooth filtering animations and loading states. Create ROICalculator component with range sliders for inputs, real-time calculation engine, and formatted output display. Add input validation and error handling. Ensure both components are fully responsive with proper touch targets for mobile. Implement comprehensive ARIA labels and descriptions for complex interactions.",
+        "description": "Create the filterable Outcomes Dashboard with categorized metric cards and the interactive ROI Calculator with real-time calculations and slider inputs.",
+        "dependencies": [
+          1,
+          2
+        ],
+        "testStrategy": "Test filtering functionality and metric card updates. Verify ROI calculations are accurate and update in real-time. Test slider interactions on touch devices. Validate accessibility compliance and performance under 250KB gzipped bundle size."
+      }
+    ],
+    "description": "Implement all interactive components including animated hero charts, tabbed detection-gap charts, tool lens toggle, timeline workflows, outcomes dashboard, and ROI calculator using Recharts library.",
+    "dependencies": [
+      2
+    ],
+    "testStrategy": "Test all interactive elements across different personas and screen sizes. Verify chart animations and data accuracy. Test filtering functionality in outcomes dashboard. Validate ROI calculator computations. Confirm accessibility compliance with WCAG 2.1 AA standards. Performance test to ensure bundle size stays under 250KB gzipped."
+  },
+  {
+    "id": 4,
+    "title": "PDF Downloads and Final Integration",
+    "status": "pending",
+    "details": "Create PDF download functionality for ungated assets (Evidence Packs, Playbooks) with direct download triggers. Implement the email form component for the 90-Day Implementation Checklist PDF with basic validation and submission handling. Build the final CTA strip with four persona-specific cards, each containing primary downloadable asset and secondary navigation link. Set up Netlify deployment configuration with proper build settings, redirects, and security headers. Implement performance optimizations including lazy loading for chart components, image optimization, and code splitting. Add final accessibility testing and WCAG compliance validation. Create comprehensive error handling and loading states throughout the application. Ensure First Contentful Paint < 1.5s on 3G networks through performance optimization.",
+    "priority": "medium",
+    "subtasks": [
+      {
+        "id": 1,
+        "title": "Implement PDF Download Functionality for Ungated Assets",
+        "status": "pending",
+        "details": "Set up static PDF assets in public folder, create download utility functions with proper MIME types and Content-Disposition headers, implement download buttons with loading states and success feedback, add error handling for failed downloads, ensure cross-browser compatibility for file downloads",
+        "description": "Create PDF download functionality for Evidence Packs and Playbooks with direct download triggers, including proper file handling and user feedback mechanisms.",
+        "dependencies": [],
+        "testStrategy": "Test PDF downloads across Chrome, Firefox, Safari, and Edge. Verify downloads work on mobile devices. Test with different file sizes and network conditions."
+      },
+      {
+        "id": 2,
+        "title": "Build Email Form Component for 90-Day Implementation Checklist",
+        "status": "pending",
+        "details": "Build React form component with email validation using regex patterns, implement form submission with loading states and success/error messages, integrate with email service provider API (Netlify Forms or similar), add GDPR-compliant consent checkbox, implement form accessibility with proper labels and ARIA attributes",
+        "description": "Create email capture form component with validation, submission handling, and integration for the 90-Day Implementation Checklist PDF download.",
+        "dependencies": [],
+        "testStrategy": "Test email validation with various input formats. Verify form submission and error handling. Test accessibility with screen readers and keyboard navigation."
+      },
+      {
+        "id": 3,
+        "title": "Create Final CTA Strip with Persona-Specific Cards",
+        "status": "pending",
+        "details": "Design responsive card layout using CSS Grid or Flexbox, create persona data structure with asset links and navigation URLs, implement card components with hover effects and accessibility features, integrate PDF download functionality from subtask 1, add proper semantic HTML structure and ARIA labels for screen readers",
+        "description": "Build the final call-to-action section with four persona-specific cards, each containing primary downloadable assets and secondary navigation links.",
+        "dependencies": [
+          1
+        ],
+        "testStrategy": "Test responsive layout across different screen sizes. Verify all download links and navigation work correctly. Test hover states and accessibility features."
+      },
+      {
+        "id": 4,
+        "title": "Configure Netlify Deployment and Performance Optimizations",
+        "status": "pending",
+        "details": "Create netlify.toml with build commands and publish directory, configure redirects and security headers, implement React.lazy() for chart components, optimize images with next-gen formats (WebP), set up code splitting for route-based chunks, configure caching headers for static assets, implement service worker for offline functionality",
+        "description": "Set up complete Netlify deployment configuration with build settings, implement performance optimizations including lazy loading, image optimization, and code splitting to achieve FCP < 1.5s.",
+        "dependencies": [
+          1,
+          2,
+          3
+        ],
+        "testStrategy": "Run Lighthouse audits to verify FCP < 1.5s on 3G networks. Test deployment pipeline and build process. Verify all redirects and security headers work correctly."
+      },
+      {
+        "id": 5,
+        "title": "Implement Error Handling, Accessibility Testing, and Final QA",
+        "status": "pending",
+        "details": "Implement global error boundary components, add loading spinners and skeleton screens for async operations, create 404 and error pages, run automated accessibility testing with axe-core, perform manual keyboard navigation testing, conduct screen reader testing with NVDA/JAWS, execute cross-browser compatibility testing, perform load testing with realistic traffic patterns",
+        "description": "Add comprehensive error handling and loading states throughout the application, conduct final accessibility audit for WCAG compliance, and perform complete cross-browser testing.",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "testStrategy": "Use automated tools like axe-core and Lighthouse for accessibility audits. Manual testing with keyboard navigation and screen readers. Cross-browser testing on Chrome, Firefox, Safari, Edge. Load testing to simulate traffic spikes."
+      }
+    ],
+    "description": "Implement PDF download functionality, email form for 90-day implementation checklist, final CTA strip with persona-specific assets, and complete Netlify deployment setup.",
+    "dependencies": [
+      3
+    ],
+    "testStrategy": "Test all PDF downloads across different browsers and devices. Verify email form validation and submission. Test complete user flow from landing to final CTA conversion. Performance testing with Lighthouse to meet FCP requirements. Cross-browser compatibility testing. Final accessibility audit with automated tools and manual testing. Load testing to ensure stable performance under traffic."
+  }
+]

@@ -1,64 +1,146 @@
-# Claude Code Task Management Guide
+# Creyos Interactive Microsites
 
-## Documentation Available
+This project contains two interactive single-page microsites for **Creyos** cognitive assessment marketing.
 
-📚 **Project Documentation**: Check the documentation files in this directory for project-specific setup instructions and guides.
-**Project Tasks**: Check the tasks directory in documentation/tasks for the list of tasks to be completed. Use the CLI commands below to interact with them.
+---
 
-## MANDATORY Task Management Workflow
+## 1. Closing the Cognitive Assessment Gap (/)
 
-🚨 **YOU MUST FOLLOW THIS EXACT WORKFLOW - NO EXCEPTIONS** 🚨
+An interactive "State of the Union" report targeting clinical personas.
 
-### **STEP 1: DISCOVER TASKS (MANDATORY)**
-You MUST start by running this command to see all available tasks:
-```bash
-task-manager list-tasks
+### Target Personas
+- Primary Care
+- Neurology
+- Mental Health / ADHD
+- Corporate Wellness
+
+### Features
+- Sticky persona selector with real-time content switching
+- Animated hero visualization (diagnosed vs undiagnosed)
+- Tabbed detection gap charts (Recharts)
+- Tool Lens toggle comparison
+- Day-in-the-Life timeline (Before/After)
+- Filterable outcomes dashboard
+- ROI calculator with sliders
+- 90-Day implementation checklist
+- Persona-specific CTA cards
+
+### Files
+- `app/page.tsx` - Main page
+- `components/report/*` - All section components
+- `contexts/PersonaContext.tsx` - Persona state management
+- `data/reportMetrics.json` - All content/data
+
+---
+
+## 2. Enterprise Cognitive Assessment Landscape (/enterprise/cognitive-assessment-landscape)
+
+An enterprise-focused microsite for IDN/health system executives.
+
+### Target Audience
+- CMO / CNO / Chief Population Health
+- Service Line Leaders (Neuro, Psych, Primary Care)
+- Chief Digital / CIO
+
+### Features
+1. **EnterpriseHero** - Stakeholder toggle with persona-specific messaging
+2. **MacroForcesPanel** - 4 expandable cards (Demographics, Regulation, Workforce, Technology)
+3. **CompetitiveQuadrant** - Interactive scatter plot with lens toggle (Clinical/Deployability/Evidence)
+4. **ValueScenarioExplorer** - Multi-slider calculator for network-scale impact modeling
+5. **EnterpriseRolloutTimeline** - 4-phase implementation timeline with expandable details
+6. **SalesAndPartnershipApproach** - Swimlane diagram (Creyos/Clinical/IT lanes)
+7. **SummaryForExecs** - 3 expandable pillars (Strategic Fit, Operational Reality, Enterprise Upside)
+
+### Files
+- `app/enterprise/cognitive-assessment-landscape/page.tsx` - Main page
+- `components/enterprise/*` - All section components
+- `config/enterpriseCognitiveReport.ts` - Hero, macro forces, exec pillars
+- `config/competitiveLandscape.ts` - Competitor data and quadrant config
+- `config/valueScenario.ts` - Calculator defaults, rollout phases, swimlane stages
+- `types/enterprise.ts` - TypeScript interfaces
+
+---
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: shadcn/ui (Radix primitives)
+- **Charts**: Recharts
+- **State**: React useState/useContext (no external state library)
+
+---
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx                              # Persona report
+│   └── enterprise/
+│       └── cognitive-assessment-landscape/
+│           └── page.tsx                      # Enterprise page
+├── components/
+│   ├── report/                               # Persona report components
+│   ├── enterprise/                           # Enterprise components
+│   └── ui/                                   # shadcn/ui components
+├── config/
+│   ├── enterpriseCognitiveReport.ts
+│   ├── competitiveLandscape.ts
+│   └── valueScenario.ts
+├── contexts/
+│   └── PersonaContext.tsx
+├── data/
+│   └── reportMetrics.json
+├── types/
+│   ├── report.ts
+│   └── enterprise.ts
+└── documentation/                            # Project requirements docs
 ```
 
-### **STEP 2: START EACH TASK (MANDATORY)**
-Before working on any task, you MUST mark it as started:
+---
+
+## Getting Started
+
 ```bash
-task-manager start-task <task_id>
+# Fix npm cache permissions (if needed)
+sudo chown -R $(whoami) ~/.npm
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-### **STEP 3: COMPLETE OR CANCEL EACH TASK (MANDATORY)**
-After finishing implementation, you MUST mark the task as completed, or cancel if you cannot complete it:
-```bash
-task-manager complete-task <task_id> "Brief description of what was implemented"
-# or
-task-manager cancel-task <task_id> "Reason for cancellation"
-```
+### URLs
+- **Persona Report**: http://localhost:3000/
+- **Enterprise Page**: http://localhost:3000/enterprise/cognitive-assessment-landscape
 
-## Task Files Location
+---
 
-📁 **Task Data**: Your tasks are organized in the `documentation/tasks/` directory:
-- Task JSON files contain complete task information
-- Use ONLY the `task-manager` commands listed above
-- Follow the mandatory workflow sequence for each task
+## Content Updates
 
-## MANDATORY Task Workflow Sequence
+### Persona Report
+Edit `data/reportMetrics.json` to update:
+- Headlines, copy, stats
+- Chart data
+- Timeline steps
+- ROI defaults
+- CTA content
 
-🔄 **For EACH individual task, you MUST follow this sequence:**
+### Enterprise Page
+Edit config files in `/config/`:
+- `enterpriseCognitiveReport.ts` - Hero, macro forces, exec pillars
+- `competitiveLandscape.ts` - Competitor positions and tooltips
+- `valueScenario.ts` - Calculator defaults, rollout phases
 
-1. 📋 **DISCOVER**: `task-manager list-tasks` (first time only)
-2. 🚀 **START**: `task-manager start-task <task_id>` (mark as in progress)
-3. 💻 **IMPLEMENT**: Do the actual coding/implementation work
-4. ✅ **COMPLETE**: `task-manager complete-task <task_id> "What was done"` (or cancel with `task-manager cancel-task <task_id> "Reason"`)
-5. 🔁 **REPEAT**: Go to next task (start from step 2)
+---
 
-## Task Status Options
+## Design Principles
 
-- `pending` - Ready to work on
-- `in_progress` - Currently being worked on  
-- `completed` - Successfully finished
-- `blocked` - Cannot proceed (waiting for dependencies)
-- `cancelled` - No longer needed
-
-## CRITICAL WORKFLOW RULES
-
-❌ **NEVER skip** the `task-manager start-task` command
-❌ **NEVER skip** the `task-manager complete-task` command  (use `task-manager cancel-task` if a task is not planned, not required, or you must stop it)
-❌ **NEVER work on multiple tasks simultaneously**
-✅ **ALWAYS complete one task fully before starting the next**
-✅ **ALWAYS provide completion details in the complete command**
-✅ **ALWAYS follow the exact 3-step sequence: list → start → complete (or cancel if not required)**
+- **No gating/forms/logins** - Everything explorable on-page
+- **Static data only** - All content from config files, no API calls
+- **Enterprise-ready** - Professional, data-driven presentation
+- **Accessible** - WCAG 2.1 AA baseline, keyboard navigation
+- **Responsive** - Mobile, tablet, desktop breakpoints
