@@ -1,90 +1,91 @@
 # Tech Stack Document
 
-This document explains the key technologies chosen for the **codeguide-starter** project. It’s written in everyday language so anyone—technical or not—can understand why each tool was picked and how it supports the application.
-
 ## 1. Frontend Technologies
-The frontend is everything the user sees and interacts with. For this project, we’ve used:
 
-- **Next.js (App Router)**
-  - A React framework that makes page routing, server-side rendering, and API routes very simple.
-  - Enhances user experience by pre-rendering pages on the server or at build time, leading to faster initial load.
-- **React 18**
-  - The underlying library for building user interfaces with reusable components.
-  - Provides a smooth, interactive experience thanks to its virtual DOM and modern hooks.
+We want a fast, accessible, and flexible user interface that adapts to four personas without reloading the page. Here’s how we’ll build it:
+
+- **Next.js (React framework)**
+  - Provides server-side rendering (SSR) and static-site generation (SSG) for quick first loads and SEO benefits.
+  - Out-of-the-box routing and API routes simplify asset handling without a separate backend service.
+- **React**
+  - Powers the dynamic persona selector and interactive UI components.
+  - Lets us break the page into reusable pieces (charts, toggles, timelines).
 - **TypeScript**
-  - A superset of JavaScript that adds types (labels for data).
-  - Helps catch errors early during development and makes the code easier to maintain.
-- **CSS (globals.css & theme.css)**
-  - **globals.css** applies base styles (fonts, colors, resets) across the entire app.
-  - **dashboard/theme.css** defines the look and feel specific to the dashboard area.
-  - This separation keeps styles organized and avoids accidental style conflicts.
-
-By combining these tools, we have a clear structure (Next.js folders for pages and layouts), safer code (TypeScript), and flexible styling with vanilla CSS.
+  - Adds static typing to catch errors early and improve code maintainability.
+  - Ensures our JSON config (reportMetrics.json) and component props align with expected shapes.
+- **Tailwind CSS**
+  - Utility-first CSS framework that keeps styles consistent and minimal.
+  - Tree-shaking removes unused classes, keeping the final CSS bundle tiny.
+- **Shadcn UI**
+  - Pre-built, accessible React components (buttons, cards, modals, tabs).
+  - Matches our existing Creyos design patterns (border radius, shadows, hover states).
+- **Charting Libraries**
+  - **Recharts** and **Chart.js** for interactive bar charts and small comparison graphics.
+  - Both integrate smoothly with React and can read from our static JSON.
+- **Static JSON Configuration**
+  - All numbers, labels, and metric definitions live in one `reportMetrics.json` file.
+  - Centralizes quarterly updates without code changes—just update the JSON and redeploy.
+- **SVG Assets & Typography**
+  - Creyos logo SVG imported directly into the header and footer.
+  - Same font family, color tokens, and type scale as creyos.com, centralized via CSS variables.
+- **Accessibility (WCAG baseline)**
+  - Semantic HTML, proper alt text for charts and icons, focus states for interactive elements.
+  - Ensures everyone—including screen-reader users—can navigate and consume content.
 
 ## 2. Backend Technologies
-The backend handles data, user accounts, and the logic behind the scenes. Our choices here are:
 
-- **Next.js API Routes**
-  - Allows us to write server-side code (`route.ts` files) alongside our frontend in the same project.
-  - Runs on Node.js, so we can handle requests like sign-up, sign-in, and data fetching in one place.
-- **Node.js Runtime**
-  - The JavaScript environment on the server that executes our API routes.
-- **bcrypt** (npm package)
-  - A library for hashing passwords securely before storing them.
-  - Ensures that even if someone got access to our data, raw passwords aren’t visible.
-- **(Optional) NextAuth.js or JWT**
-  - While this starter kit shows a custom authentication flow, it can easily integrate services like NextAuth.js for email-based login or JWT (JSON Web Tokens) for stateless sessions.
+This project relies almost entirely on static assets and client-side interactivity. Here’s what we do have running on the server side:
 
-These components work together to receive user credentials, verify or store them securely, manage sessions or tokens, and deliver protected data back to the frontend.
+- **Next.js API Routes (optional)**
+  - Ready for future data needs or form submissions, though v1 keeps all data client-side.
+- **Node.js (LTS)**
+  - The runtime for building and serving the Next.js app.
+- **No External Database**
+  - All interactive data comes straight from versioned JSON.
+  - Eliminates complex setup, speeds up builds, and guarantees predictable performance.
 
 ## 3. Infrastructure and Deployment
-Infrastructure covers where and how we host the app, as well as how changes get delivered:
 
-- **Git & GitHub**
-  - Version control system (Git) and remote hosting (GitHub) keep track of all code changes and allow team collaboration.
-- **Vercel (or Netlify)**
-  - A popular hosting service optimized for Next.js, with one-click deployments and global content delivery.
-  - Automatically rebuilds and deploys the site whenever code is pushed to the main branch.
-- **GitHub Actions (CI/CD)**
-  - Automates tasks like linting (ESLint), formatting (Prettier), and running any tests you add.
-  - Ensures that only clean, tested code goes live.
+We aim for a frictionless developer experience, automated builds, and instant previews:
 
-Together, these tools provide a reliable, scalable setup where every code change is tested and deployed quickly, with minimal manual work.
+- **Version Control: Git + GitHub**
+  - Branch-based workflow with pull-requests for code review.
+- **Hosting & CI/CD: Netlify**
+  - Automatic builds and deploy previews on every push.
+  - Separate branches for staging and production environments.
+- **Static Asset Hosting**
+  - PDFs, slide decks, and sample reports live in the `/public` folder.
+  - Served via the same CDN as the site, ensuring fast downloads.
 
 ## 4. Third-Party Integrations
-While this starter kit is minimal by design, it already includes or can easily add:
 
-- **bcrypt**
-  - For secure password hashing (included as an npm dependency).
-- **NextAuth.js** (optional)
-  - A full-featured authentication library supporting email/password, OAuth, and more.
-- **Sentry or LogRocket** (optional)
-  - For real-time error tracking and performance monitoring in production.
+To keep the initial launch lean, we’re not wiring up any external services yet:
 
-These integrations help extend the app’s capabilities without building every feature from scratch.
+- **Forms & CRM:** Ungated downloads—no HubSpot or Salesforce integration in v1.
+- **Analytics:** No tracking by default. (Optionally add Google Analytics or Segment later.)
+- **Email & Lead Magnets:** Handled via simple mailto links or file downloads.
 
 ## 5. Security and Performance Considerations
-We’ve baked in several measures to keep users safe and the app running smoothly:
 
-Security:
-- Passwords are never stored in plain text—bcrypt hashes them with a random salt.
-- API routes can implement CSRF protection and input validation to block malicious requests.
-- Session tokens or cookies are marked secure and HttpOnly to prevent theft via JavaScript.
+Our choices ensure the page is quick to load, secure, and accessible:
 
-Performance:
-- Server-side rendering (SSR) and static site generation (SSG) in Next.js deliver pages faster.
-- Code splitting and lazy-loaded components ensure users only download what they need.
-- Global CSS and theme files are small and cached by the browser for quick repeat visits.
-
-These strategies work together to give users a fast, secure experience every time.
+- **Performance Optimizations**
+  - Static-site generation (SSG) for near-instant page loads.
+  - Tailwind CSS purge and code-splitting via Next.js.
+  - CDN distribution by Netlify for global coverage.
+- **Security Measures**
+  - No user authentication or sensitive data storage in v1.
+  - All assets served over HTTPS.
+- **Accessibility Standards**
+  - WCAG baseline compliance: semantic markup, color contrast tokens from Creyos design system, keyboard navigation.
 
 ## 6. Conclusion and Overall Tech Stack Summary
-In building **codeguide-starter**, we chose technologies that:
 
-- Align with modern web standards (Next.js, React, TypeScript).
-- Provide a clear, file-based project structure for rapid onboarding.
-- Offer built-in support for server-side rendering, API routes, and static assets.
-- Emphasize security through password hashing, session management, and safe defaults.
-- Enable easy scaling and future enhancements via modular code and optional integrations.
+By combining Next.js, React, and TypeScript with Tailwind CSS and Shadcn UI, we get a maintainable, accessible, and brand-consistent frontend. Static JSON files power our charts and metrics, eliminating the need for a database while making quarterly updates trivial. Netlify’s CI/CD pipeline delivers frictionless deployments and previews. We’ve deferred complex integrations—like CRM or analytics—to focus on a fast, reliable, skimmable report that prospects can personalize in one click. This lean but powerful tech stack aligns perfectly with our goals:
 
-This stack strikes a balance between simplicity for newcomers and flexibility for experienced teams. It accelerates development of a secure authentication flow and a polished dashboard, while leaving room to plug in databases, test suites, and advanced features as the project grows.
+- Drive traffic and leads through dynamic, persona-tailored content.
+- Offer deep insights for clinicians with interactive charts and JTBD timelines.
+- Maintain a single codebase and URL for all four personas.
+- Ensure fast load times, accessibility, and easy maintenance.
+
+Unique Aspect: Using a static JSON config alongside React-based interactivity gives us the best of both worlds—maximum performance with all the personalization and flexibility of a modern web app.

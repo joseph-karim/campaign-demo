@@ -1,14 +1,11 @@
 flowchart TD
   Start[Landing Page]
-  SignUpPage[Sign Up Page]
-  SignInPage[Sign In Page]
-  AuthAPI[Authentication API Endpoint]
-  DashboardPage[Dashboard Page]
-  Start -->|Select Sign Up| SignUpPage
-  Start -->|Select Sign In| SignInPage
-  SignUpPage -->|Submit Credentials| AuthAPI
-  SignInPage -->|Submit Credentials| AuthAPI
-  AuthAPI -->|Success| DashboardPage
-  AuthAPI -->|Error| SignUpPage
-  AuthAPI -->|Error| SignInPage
-  DashboardPage -->|Click Logout| Start
+  Start --> PersonaSelector[Persona Selection]
+  PersonaSelector --> DataViz[Interactive Data Visualization]
+  DataViz --> ToolLens[Tool Lens Comparison]
+  ToolLens --> DayInLife[Day in the Life Workflow]
+  DayInLife --> Outcomes[Outcomes Dashboard]
+  Outcomes --> ROICalc[ROI Calculator]
+  ROICalc --> Checklist[90 Day Implementation Checklist]
+  Checklist --> FinalCTA[Segmented Final CTAs]
+  FinalCTA --> Download[Ungated PDF Download]

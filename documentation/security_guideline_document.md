@@ -1,116 +1,170 @@
-# Security Guidelines for codeguide-starter
+# Implementation Plan: "Closing the Cognitive Assessment Gap"
 
-This document defines mandatory security principles and implementation best practices tailored to the **codeguide-starter** repository. It aligns with Security-by-Design, Least Privilege, Defense-in-Depth, and other core security tenets. All sections reference specific areas of the codebase (e.g., `/app/api/auth/route.ts`, CSS files, environment configuration) to ensure practical guidance.
-
----
-
-## 1. Security by Design
-
-• Embed security from day one: review threat models whenever adding new features (e.g., new API routes, data fetching).
-• Apply “secure defaults” in Next.js configuration (`next.config.js`), enabling strict mode and disabling debug flags in production builds.
-• Maintain a security checklist in your PR template to confirm that each change has been reviewed against this guideline.
+This plan is organized into phases, feature breakdowns, and cross-cutting concerns (performance, accessibility, security). Each section outlines key tasks, deliverables, and responsible parties.
 
 ---
 
-## 2. Authentication & Access Control
+## 1. Project Setup & Architecture
 
-### 2.1 Password Storage
-- Use **bcrypt** (or Argon2) with a per-user salt to hash passwords in `/app/api/auth/route.ts`.
-- Enforce a strong password policy on both client and server: minimum 12 characters, mixed case, numbers, and symbols.
+### 1.1. Repository & Tooling
+- Fork and clone the CodeGuide Starter Fullstack repo.
+- Initialize Git branches: `main`, `develop`, feature branches (`feature/persona-selector`, etc.).
+- Install dependencies:
+  - Next.js (latest LTS)
+  - React, TypeScript
+  - Tailwind CSS + Shadcn UI
+  - Recharts or Chart.js
+  - ESLint + Prettier for code quality
+- Configure:
+  - `tsconfig.json` (strict mode)
+  - `tailwind.config.js` (brand colors, fonts)
+  - `.env.local` for secrets (PDF storage URL, email-capture API key)
 
-### 2.2 Session Management
-- Issue sessions via Secure, HttpOnly, SameSite=strict cookies. Do **not** expose tokens to JavaScript.
-- Implement absolute and idle timeouts. For example, invalidate sessions after 30 minutes of inactivity.
-- Protect against session fixation by regenerating session IDs after authentication.
-
-### 2.3 Brute-Force & Rate Limiting
-- Apply rate limiting at the API layer (e.g., using `express-rate-limit` or Next.js middleware) on `/api/auth` to throttle repeated login attempts.
-- Introduce exponential backoff or temporary lockout after N failed attempts.
-
-### 2.4 Role-Based Access Control (Future)
-- Define user roles in your database model (e.g., `role = 'user' | 'admin'`).
-- Enforce server-side authorization checks in every protected route (e.g., in `dashboard/layout.tsx` loader functions).
-
----
-
-## 3. Input Handling & Processing
-
-### 3.1 Validate & Sanitize All Inputs
-- On **client** (`sign-up/page.tsx`, `sign-in/page.tsx`): perform basic format checks (email regex, password length).
-- On **server** (`/app/api/auth/route.ts`): re-validate inputs with a schema validator (e.g., `zod`, `Joi`).
-- Reject or sanitize any unexpected fields to prevent injection attacks.
-
-### 3.2 Prevent Injection
-- If you introduce a database later, always use parameterized queries or an ORM (e.g., Prisma) rather than string concatenation.
-- Avoid dynamic `eval()` or template rendering with unsanitized user input.
-
-### 3.3 Safe Redirects
-- When redirecting after login or logout, validate the target against an allow-list to prevent open redirects.
-
----
-
-## 4. Data Protection & Privacy
-
-### 4.1 Encryption & Secrets
-- Enforce HTTPS/TLS 1.2+ for all front-end ↔ back-end communications.
-- Never commit secrets—use environment variables and a secrets manager (e.g., AWS Secrets Manager, Vault).
-
-### 4.2 Sensitive Data Handling
-- Do ​not​ log raw passwords, tokens, or PII in server logs. Mask or redact any user identifiers.
-- If storing PII in `data.json` or a future database, classify it and apply data retention policies.
+### 1.2. Directory Structure
+```
+/pages
+  index.tsx             # Main report page
+  api/download.ts       # (Optional) email capture endpoint
+/components
+  PersonaSelector.tsx
+  Charts/
+  Timelines/
+  ROI/
+  Checklist/
+  CTA/
+/data
+  reportMetrics.json    # static content & chart data
+/public
+  assets/brand          # logos, fonts, PDF files
+/styles
+  globals.css           # Tailwind import
+```
 
 ---
 
-## 5. API & Service Security
+## 2. Data Modeling & Static JSON
 
-### 5.1 HTTPS Enforcement
-- In production, redirect all HTTP traffic to HTTPS (e.g., via Vercel’s redirect rules or custom middleware).
+- Define `reportMetrics.json` schema:
+  - Personas: id, name, copy blocks, chart datasets, timeline steps, checklist items, CTA links
+  - Chart definitions: type, labels, values
+  - ROI parameters: default rates, cost factors
+- Validate JSON against a TypeScript interface (`src/types.ts`).
+- Embed JSON as a strongly-typed import in Next.js (no runtime parsing surprises).
 
-### 5.2 CORS
-- Configure `next.config.js` or API middleware to allow **only** your front-end origin (e.g., `https://your-domain.com`).
-
-### 5.3 API Versioning & Minimal Exposure
-- Version your API routes (e.g., `/api/v1/auth`) to handle future changes without breaking clients.
-- Return only necessary fields in JSON responses; avoid leaking internal server paths or stack traces.
-
----
-
-## 6. Web Application Security Hygiene
-
-### 6.1 CSRF Protection
-- Use anti-CSRF tokens for any state-changing API calls. Integrate Next.js CSRF middleware or implement synchronizer tokens stored in cookies.
-
-### 6.2 Security Headers
-- In `next.config.js` (or a custom server), add these headers:
-  - `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
-  - `X-Content-Type-Options: nosniff`
-  - `X-Frame-Options: DENY`
-  - `Referrer-Policy: no-referrer-when-downgrade`
-  - `Content-Security-Policy`: restrict script/style/src to self and trusted CDNs.
-
-### 6.3 Secure Cookies
-- Set `Secure`, `HttpOnly`, `SameSite=Strict` on all cookies. Avoid storing sensitive data in `localStorage`.
-
-### 6.4 Prevent XSS
-- Escape or encode all user-supplied data in React templates. Avoid `dangerouslySetInnerHTML` unless content is sanitized.
+Cross-Cutting: Input Validation
+- The JSON file is the only external data source. Validate its shape at build time using Zod or a similar schema validator.
 
 ---
 
-## 7. Infrastructure & Configuration Management
+## 3. Feature Breakdown
 
-- Harden your hosting environment (e.g., Vercel/Netlify) by disabling unnecessary endpoints (GraphQL/GraphiQL playgrounds in production).
-- Rotate secrets and API keys regularly via your secrets manager.
-- Maintain minimal privileges: e.g., database accounts should only have read/write on required tables.
-- Keep Node.js, Next.js, and all system packages up to date.
+### 3.1. Persona Personalization
+- **Component:** `<PersonaSelector>`
+- **Behavior:** Sticky on scroll, persists selection in React context and `localStorage`.
+- **Dynamic Content:** Wrap content regions in a `PersonaContext` provider to switch copy, charts, timelines, CTAs.
+- **Accessibility:** Keyboard navigable, `aria-current` on selected persona.
+
+### 3.2. Interactive Data Visualization
+- **Components:** `<GapChart>`, `<BenefitChart>`
+- **Library:** Recharts (tree-shakeable) or Chart.js (bundle-typed)
+- **Data Binding:** Pull persona-specific datasets from `reportMetrics.json`
+- **Performance:** Lazy-load chart library with `next/dynamic` and suspense fallback.
+- **Security:** No user input feeds charts, so XSS risk is negligible.
+
+### 3.3. Tool Lens Toggle
+- **Component:** `<ToolLensToggle>`
+- **State:** Selected assessment method stored in context.
+- **UI:** Accessible radio buttons or segmented control (Shadcn UI).
+- **Content Update:** Highlight corresponding data series in charts and timeline annotations.
+
+### 3.4. Day-in-the-Life Timelines
+- **Component:** `<Timeline beforeData=s… afterData=…>`
+- **Structure:** Side-by-side panels with icons, timestamps, descriptions.
+- **Responsive:** Vertical stacking on small screens.
+- **Animation:** Simple CSS transitions (no heavy libraries).
+
+### 3.5. Outcomes Dashboard
+- **Component:** `<OutcomeGrid>`
+- **Functionality:** Persona and filterable metric cards.
+- **Grid System:** CSS Grid via Tailwind.
+- **Accessibility:** Cards use semantic `<article>`, proper headings.
+
+### 3.6. ROI Calculator
+- **Component:** `<ROICalculator>`
+- **Inputs:** Number inputs, selects. All values validated client-side (min, max, step).
+- **Calculation:** Pure function in TS. Unit-test edge cases.
+- **Security:** No code injection; sanitize numeric inputs.
+
+### 3.7. 90-Day Implementation Checklist
+- **Component:** `<Checklist>`
+- **Data:** Persona-specific steps from JSON.
+- **Interaction:** Check/uncheck, persist in `localStorage`.
+- **Email Capture:** Modal or inline form on CTA; POST to `/api/download` to send PDF link via email.
+
+### 3.8. Final CTA Strip
+- **Component:** `<PersonaCTACards>`
+- **Content:** Links to ungated PDF downloads, contact sales.
+- **Analytics:** Data attributes for click tracking (Google Analytics or Segment).
 
 ---
 
-## 8. Dependency Management
+## 4. UI/UX & Accessibility
 
-- Commit and maintain `package-lock.json` to guarantee reproducible builds.
-- Integrate a vulnerability scanner (e.g., GitHub Dependabot, Snyk) to monitor and alert on CVEs in dependencies.
-- Trim unused packages; each added library increases the attack surface.
+- **WCAG 2.1 AA** compliance:
+  - Color contrast (Tailwind config enforced)
+  - Keyboard navigation, focus states
+  - ARIA roles & labels for interactive elements
+- **Responsive Design:** Mobile-first breakpoints in Tailwind
+- **Consistency:** Reuse Shadcn UI tokens and utility classes for spacing, typography
 
 ---
 
-Adherence to these guidelines will ensure that **codeguide-starter** remains secure, maintainable, and resilient as it evolves. Regularly review and update this document to reflect new threats and best practices.
+## 5. Performance Optimization
+
+- **Code Splitting & Lazy Loading:** Charts, timeline animations, ROI modules
+- **Image Optimization:** Next.js `<Image>` for brand assets
+- **Static Export:** Prefer `next export` for a fully static site behind Netlify
+- **Bundle Size Targets:** Enforce budget in CI (e.g., webpack bundle analyzer)
+- **Caching:** Leverage Netlify cache headers for JSON, assets
+
+---
+
+## 6. Security Considerations
+
+- **HTTPS Everywhere:** Netlify defaults to TLS 1.2+ with HSTS
+- **Content Security Policy:** Define a strict CSP via `next.config.js` headers
+- **Secure Headers:** `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`
+- **No User-Generated HTML:** All content is static; injection risk is minimal
+- **CSRF:** Only one state-changing endpoint (`/api/download`); protect with a synchronizer token
+- **Secrets Management:** Email API key in Netlify environment variables (never in code)
+- **Dependency Hygiene:** Lockfile in place; integrate automated vulnerability scanning (GitHub Dependabot)
+
+---
+
+## 7. Testing & QA
+
+- **Unit Tests:** Calculator logic, context state management
+- **Integration Tests:** Persona switching, chart rendering snapshots
+- **E2E Tests:** Cypress to simulate user flows (persona select → interact → download)
+- **Accessibility Audit:** Axe CI or Lighthouse checks in CI
+- **Performance Checks:** Lighthouse budget enforcement
+
+---
+
+## 8. Deployment & Monitoring
+
+- **Pipeline:** Push to `main` triggers Netlify deploy
+- **Environments:** Preview deploys per PR; production on merge to main
+- **Monitoring:** Netlify analytics and Sentry for client-side errors
+- **Rollbacks:** Netlify instant rollback on failure
+
+---
+
+### Timeline Estimate (4 Weeks)
+
+1. Week 1: Project setup, JSON modeling, persona selector, context layer
+2. Week 2: Charts, tool lens toggle, timelines
+3. Week 3: Dashboard, ROI calculator, checklist & email capture
+4. Week 4: Final CTA, styling, accessibility, performance tuning, testing, deployment
+
+*All code reviews will include security and accessibility checkpoints.*
