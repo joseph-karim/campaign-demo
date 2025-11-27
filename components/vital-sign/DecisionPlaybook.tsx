@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { decisionRows } from '@/config/vitalSignContent';
 import type { RiskLevel } from '@/types/vitalSign';
 import { Lightbulb, MessageCircle, X, User } from 'lucide-react';
@@ -68,8 +68,8 @@ export function DecisionPlaybook() {
             {/* Body */}
             <tbody>
               {decisionRows.map(row => (
-                <>
-                  <tr key={row.id} className="border-b border-slate-800">
+                <Fragment key={row.id}>
+                  <tr className="border-b border-slate-800">
                     {/* Scenario Title */}
                     <td className="p-4">
                       <button
@@ -119,7 +119,7 @@ export function DecisionPlaybook() {
 
                   {/* Expanded Vignette Row */}
                   {expandedRowId === row.id && (
-                    <tr key={`${row.id}-vignette`}>
+                    <tr>
                       <td colSpan={4} className="p-4 bg-slate-800/50">
                         <div className="flex items-start gap-3">
                           <div className="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -133,7 +133,7 @@ export function DecisionPlaybook() {
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>
