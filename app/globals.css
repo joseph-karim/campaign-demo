@@ -3,6 +3,41 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Creyos Brand Colors */
+:root {
+  /* Primary Colors */
+  --creyos-blue: #0066CC;
+  --creyos-blue-light: #1A7FE8;
+  --creyos-blue-dark: #0052A3;
+  --creyos-navy: #0A1628;
+  --creyos-navy-light: #1A2744;
+  --creyos-navy-lighter: #243352;
+  
+  /* Accent Colors */
+  --creyos-teal: #00A3A3;
+  --creyos-teal-light: #00C4C4;
+  --creyos-teal-dark: #008080;
+  
+  /* Neutrals */
+  --creyos-white: #FFFFFF;
+  --creyos-gray-50: #F8FAFC;
+  --creyos-gray-100: #F1F5F9;
+  --creyos-gray-200: #E2E8F0;
+  --creyos-gray-300: #CBD5E1;
+  --creyos-gray-400: #94A3B8;
+  --creyos-gray-500: #64748B;
+  --creyos-gray-600: #475569;
+  --creyos-gray-700: #334155;
+  --creyos-gray-800: #1E293B;
+  --creyos-gray-900: #0F172A;
+  
+  /* State Colors */
+  --creyos-success: #059669;
+  --creyos-warning: #D97706;
+  --creyos-error: #DC2626;
+  --creyos-info: #0284C7;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

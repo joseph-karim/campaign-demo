@@ -1,10 +1,19 @@
 # Creyos Interactive Microsites
 
-This project contains four interactive single-page microsites for **Creyos** cognitive assessment marketing, GTM planning, and sales enablement.
+This project contains four interactive single-page microsites for **Creyos** cognitive assessment marketing, GTM planning, and sales enablement, plus a unified navigation hub.
+
+## Navigation Hub (/)
+
+The landing page provides a central navigation point to all reports with:
+- Creyos branding and logo
+- Validation badges (30+ years, 400+ studies, 10,000+ providers)
+- Brand attribute tags
+- Report cards with descriptions, target audiences, and key features
+- Four pillars section
 
 ---
 
-## 1. Closing the Cognitive Assessment Gap (/)
+## 1. Closing the Cognitive Assessment Gap (/closing-the-gap)
 
 An interactive "State of the Union" report targeting clinical personas.
 
@@ -26,7 +35,7 @@ An interactive "State of the Union" report targeting clinical personas.
 - Persona-specific CTA cards
 
 ### Files
-- `app/page.tsx` - Main page
+- `app/closing-the-gap/page.tsx` - Main page
 - `components/report/*` - All section components
 - `contexts/PersonaContext.tsx` - Persona state management
 - `data/reportMetrics.json` - All content/data
@@ -130,7 +139,9 @@ Makes the status quo vs new approach obvious in under 30 seconds for clinicians,
 
 ```
 ├── app/
-│   ├── page.tsx                              # Persona report
+│   ├── page.tsx                              # Navigation Hub (landing)
+│   ├── closing-the-gap/
+│   │   └── page.tsx                          # Persona report
 │   ├── cognitive-vital-sign/
 │   │   └── page.tsx                          # Cognitive Vital Sign
 │   ├── enterprise/
@@ -140,12 +151,14 @@ Makes the status quo vs new approach obvious in under 30 seconds for clinicians,
 │       └── enterprise-gtm-blueprint/
 │           └── page.tsx                      # GTM Blueprint (internal)
 ├── components/
+│   ├── shared/                               # Shared header, footer, brand
 │   ├── report/                               # Persona report components
 │   ├── vital-sign/                           # Cognitive Vital Sign components
 │   ├── enterprise/                           # Enterprise components
 │   ├── gtm/                                  # GTM blueprint components
 │   └── ui/                                   # shadcn/ui components
 ├── config/
+│   ├── brand.ts                              # Creyos brand colors, typography, pages
 │   ├── enterpriseCognitiveReport.ts
 │   ├── competitiveLandscape.ts
 │   ├── valueScenario.ts
@@ -163,6 +176,8 @@ Makes the status quo vs new approach obvious in under 30 seconds for clinicians,
 │   ├── enterprise.ts
 │   ├── gtm.ts
 │   └── vitalSign.ts
+├── public/
+│   └── CreyosLogo-RGB-1.webp                 # Creyos logo
 └── documentation/                            # Project requirements docs
 ```
 
@@ -182,7 +197,8 @@ npm run dev
 ```
 
 ### URLs
-- **Persona Report**: http://localhost:3000/
+- **Navigation Hub**: http://localhost:3000/
+- **Closing the Gap**: http://localhost:3000/closing-the-gap
 - **Cognitive Vital Sign**: http://localhost:3000/cognitive-vital-sign
 - **Enterprise Page**: http://localhost:3000/enterprise/cognitive-assessment-landscape
 - **GTM Blueprint** (internal): http://localhost:3000/internal/enterprise-gtm-blueprint

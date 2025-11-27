@@ -9,10 +9,17 @@ import {
   SalesAndPartnershipApproach,
   SummaryForExecs,
 } from '@/components/enterprise';
+import { CreyosHeader, CreyosFooter } from '@/components/shared';
 
 export default function EnterpriseCognitiveAssessmentLandscapePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen bg-[var(--creyos-navy)]">
+      {/* Header */}
+      <CreyosHeader variant="dark" />
+      
+      {/* Spacer for fixed header */}
+      <div className="h-16" />
+
       {/* Section 1: Enterprise Hero */}
       <EnterpriseHero />
 
@@ -33,7 +40,9 @@ export default function EnterpriseCognitiveAssessmentLandscapePage() {
 
       {/* Section 7: Summary for Execs */}
       <SummaryForExecs />
+
+      {/* Footer */}
+      <CreyosFooter variant="dark" />
     </div>
   );
 }
-

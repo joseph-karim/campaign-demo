@@ -9,6 +9,7 @@ import {
   ClinicQuickStart,
   SummaryStrip
 } from '@/components/vital-sign';
+import { CreyosHeader, CreyosFooter } from '@/components/shared';
 
 export const metadata = {
   title: 'From Gut Feel to a Cognitive Vital Sign | Creyos',
@@ -18,7 +19,9 @@ export const metadata = {
 export default function CognitiveVitalSignPage() {
   return (
     <VitalSignPersonaProvider>
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-[var(--creyos-navy)]">
+        {/* Header */}
+        <CreyosHeader variant="dark" />
         {/* Hero */}
         <VitalSignHero />
 
@@ -44,16 +47,7 @@ export default function CognitiveVitalSignPage() {
         <SummaryStrip />
 
         {/* Footer */}
-        <footer className="bg-slate-950 border-t border-slate-800 py-8 px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <p className="text-slate-500 text-sm">
-              Creyos • Cognitive Vital Sign
-            </p>
-            <p className="text-slate-600 text-xs mt-2">
-              Making cognitive assessment as routine as blood pressure
-            </p>
-          </div>
-        </footer>
+        <CreyosFooter variant="dark" />
       </main>
     </VitalSignPersonaProvider>
   );
